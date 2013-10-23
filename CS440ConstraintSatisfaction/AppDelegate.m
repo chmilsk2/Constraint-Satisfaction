@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "CSPMainViewController.h"
 
 @implementation AppDelegate
 
@@ -15,7 +16,13 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+	
+	CSPMainViewController *mainViewController = [[CSPMainViewController alloc] init];
+	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
+	[self.window setRootViewController:navController];
+	
     [self.window makeKeyAndVisible];
+	
     return YES;
 }
 
