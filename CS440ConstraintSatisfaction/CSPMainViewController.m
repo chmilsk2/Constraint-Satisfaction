@@ -74,7 +74,8 @@
 	
 	scheduleParsingOperation.scheduleParsingCompletionBlock = ^(CSPSchedule *schedule, NSError *error) {
 		if (!error) {
-			NSLog(@"finished parsing schedule: %@", schedule);
+			// solve the csp
+			
 		}
 		
 		else {
