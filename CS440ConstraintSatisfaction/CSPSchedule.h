@@ -16,6 +16,12 @@
 @property NSDictionary *assignedMeetingsDict;
 @property NSArray *travelTimeBetweenMeetings;
 
-- (id)initWithNumberOfMeetings:(NSUInteger)numberOfMeetings numberOfEmployees:(NSUInteger)numberOfEmployees numberOfTimeSlots:(NSUInteger)numberOfTimeSlots assignedMeetingsDict:(NSDictionary *)assignedMeetingsDict travelTimeBetweenMeetings:(NSArray *)travelTimeBetweenMeetings;
+- (id)initWithNumberOfMeetings:(NSUInteger)numberOfMeetings
+			 numberOfEmployees:(NSUInteger)numberOfEmployees
+			 numberOfTimeSlots:(NSUInteger)numberOfTimeSlots
+		  assignedMeetingsDict:(NSDictionary *)assignedMeetingsDict
+	 travelTimeBetweenMeetings:(NSArray *)travelTimeBetweenMeetings;
+
+- (NSUInteger)travelTimeBetweenMeeting1:(NSUInteger)meeting1 meeting2:(NSUInteger)meeting2;
 
 @end

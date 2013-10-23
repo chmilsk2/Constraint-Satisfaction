@@ -24,4 +24,14 @@
 	return self;
 }
 
+#pragma mark - Travel Time Between Meetings
+
+- (NSUInteger)travelTimeBetweenMeeting1:(NSUInteger)meeting1 meeting2:(NSUInteger)meeting2 {
+	// row major order offset
+	// matrix is symmetric so it doesn't matter which meeting passed in is used for the row or column
+	NSUInteger offset = (meeting1 - 1)*_numberOfMeetings+(meeting2 - 1);
+	
+	return [_travelTimeBetweenMeetings[offset] unsignedIntegerValue];
+}
+
 @end
