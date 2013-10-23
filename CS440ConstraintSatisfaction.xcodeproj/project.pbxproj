@@ -19,6 +19,15 @@
 		05B754851815F421003B5A1F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B7546D1815F421003B5A1F /* UIKit.framework */; };
 		05B7548D1815F421003B5A1F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05B7548B1815F421003B5A1F /* InfoPlist.strings */; };
 		05B7548F1815F421003B5A1F /* CS440ConstraintSatisfactionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B7548E1815F421003B5A1F /* CS440ConstraintSatisfactionTests.m */; };
+		05B7549C1815F690003B5A1F /* problem1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 05B754991815F690003B5A1F /* problem1.txt */; };
+		05B7549D1815F690003B5A1F /* problem2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 05B7549A1815F690003B5A1F /* problem2.txt */; };
+		05B7549E1815F690003B5A1F /* problem3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 05B7549B1815F690003B5A1F /* problem3.txt */; };
+		05B754A11815F8AD003B5A1F /* CSPMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B754A01815F8AD003B5A1F /* CSPMainViewController.m */; };
+		05B754A51815F96D003B5A1F /* 854-list.png in Resources */ = {isa = PBXBuildFile; fileRef = 05B754A31815F96D003B5A1F /* 854-list.png */; };
+		05B754A61815F96D003B5A1F /* 854-list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05B754A41815F96D003B5A1F /* 854-list@2x.png */; };
+		05B754AC1815FB00003B5A1F /* CSPListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B754AB1815FB00003B5A1F /* CSPListViewController.m */; };
+		05B754AF1815FBEF003B5A1F /* CSPScheduleParsingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B754AE1815FBEF003B5A1F /* CSPScheduleParsingOperation.m */; };
+		05B754B918181123003B5A1F /* CSPSchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B754B818181123003B5A1F /* CSPSchedule.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +57,21 @@
 		05B7548A1815F421003B5A1F /* CS440ConstraintSatisfactionTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CS440ConstraintSatisfactionTests-Info.plist"; sourceTree = "<group>"; };
 		05B7548C1815F421003B5A1F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		05B7548E1815F421003B5A1F /* CS440ConstraintSatisfactionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CS440ConstraintSatisfactionTests.m; sourceTree = "<group>"; };
+		05B754991815F690003B5A1F /* problem1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = problem1.txt; sourceTree = "<group>"; };
+		05B7549A1815F690003B5A1F /* problem2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = problem2.txt; sourceTree = "<group>"; };
+		05B7549B1815F690003B5A1F /* problem3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = problem3.txt; sourceTree = "<group>"; };
+		05B7549F1815F8AD003B5A1F /* CSPMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPMainViewController.h; sourceTree = "<group>"; };
+		05B754A01815F8AD003B5A1F /* CSPMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPMainViewController.m; sourceTree = "<group>"; };
+		05B754A31815F96D003B5A1F /* 854-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "854-list.png"; sourceTree = "<group>"; };
+		05B754A41815F96D003B5A1F /* 854-list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "854-list@2x.png"; sourceTree = "<group>"; };
+		05B754AA1815FB00003B5A1F /* CSPListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPListViewController.h; sourceTree = "<group>"; };
+		05B754AB1815FB00003B5A1F /* CSPListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPListViewController.m; sourceTree = "<group>"; };
+		05B754AD1815FBEF003B5A1F /* CSPScheduleParsingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPScheduleParsingOperation.h; sourceTree = "<group>"; };
+		05B754AE1815FBEF003B5A1F /* CSPScheduleParsingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPScheduleParsingOperation.m; sourceTree = "<group>"; };
+		05B754B018160C84003B5A1F /* CSPListDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPListDelegate.h; sourceTree = "<group>"; };
+		05B754B118160E5B003B5A1F /* CSPListSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPListSection.h; sourceTree = "<group>"; };
+		05B754B718181123003B5A1F /* CSPSchedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPSchedule.h; sourceTree = "<group>"; };
+		05B754B818181123003B5A1F /* CSPSchedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPSchedule.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +131,9 @@
 		05B7546F1815F421003B5A1F /* CS440ConstraintSatisfaction */ = {
 			isa = PBXGroup;
 			children = (
+				05B754A91815FADB003B5A1F /* Controller */,
+				05B754A81815FAD9003B5A1F /* View */,
+				05B754A71815FAD6003B5A1F /* Model */,
 				05B754781815F421003B5A1F /* AppDelegate.h */,
 				05B754791815F421003B5A1F /* AppDelegate.m */,
 				05B7547B1815F421003B5A1F /* Images.xcassets */,
@@ -118,6 +145,8 @@
 		05B754701815F421003B5A1F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				05B754A21815F964003B5A1F /* Images */,
+				05B754981815F682003B5A1F /* Scheduling */,
 				05B754711815F421003B5A1F /* CS440ConstraintSatisfaction-Info.plist */,
 				05B754721815F421003B5A1F /* InfoPlist.strings */,
 				05B754751815F421003B5A1F /* main.m */,
@@ -142,6 +171,56 @@
 				05B7548B1815F421003B5A1F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		05B754981815F682003B5A1F /* Scheduling */ = {
+			isa = PBXGroup;
+			children = (
+				05B754991815F690003B5A1F /* problem1.txt */,
+				05B7549A1815F690003B5A1F /* problem2.txt */,
+				05B7549B1815F690003B5A1F /* problem3.txt */,
+			);
+			name = Scheduling;
+			sourceTree = "<group>";
+		};
+		05B754A21815F964003B5A1F /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				05B754A31815F96D003B5A1F /* 854-list.png */,
+				05B754A41815F96D003B5A1F /* 854-list@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		05B754A71815FAD6003B5A1F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				05B754B718181123003B5A1F /* CSPSchedule.h */,
+				05B754B818181123003B5A1F /* CSPSchedule.m */,
+				05B754AD1815FBEF003B5A1F /* CSPScheduleParsingOperation.h */,
+				05B754AE1815FBEF003B5A1F /* CSPScheduleParsingOperation.m */,
+				05B754B018160C84003B5A1F /* CSPListDelegate.h */,
+				05B754B118160E5B003B5A1F /* CSPListSection.h */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		05B754A81815FAD9003B5A1F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		05B754A91815FADB003B5A1F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				05B7549F1815F8AD003B5A1F /* CSPMainViewController.h */,
+				05B754A01815F8AD003B5A1F /* CSPMainViewController.m */,
+				05B754AA1815FB00003B5A1F /* CSPListViewController.h */,
+				05B754AB1815FB00003B5A1F /* CSPListViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +267,7 @@
 		05B7545E1815F420003B5A1F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = CSP;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Troy Chmieleski";
 				TargetAttributes = {
@@ -220,7 +300,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				05B754741815F421003B5A1F /* InfoPlist.strings in Resources */,
+				05B754A61815F96D003B5A1F /* 854-list@2x.png in Resources */,
+				05B754A51815F96D003B5A1F /* 854-list.png in Resources */,
+				05B7549D1815F690003B5A1F /* problem2.txt in Resources */,
 				05B7547C1815F421003B5A1F /* Images.xcassets in Resources */,
+				05B7549C1815F690003B5A1F /* problem1.txt in Resources */,
+				05B7549E1815F690003B5A1F /* problem3.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,8 +324,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05B754A11815F8AD003B5A1F /* CSPMainViewController.m in Sources */,
+				05B754B918181123003B5A1F /* CSPSchedule.m in Sources */,
 				05B7547A1815F421003B5A1F /* AppDelegate.m in Sources */,
 				05B754761815F421003B5A1F /* main.m in Sources */,
+				05B754AC1815FB00003B5A1F /* CSPListViewController.m in Sources */,
+				05B754AF1815FBEF003B5A1F /* CSPScheduleParsingOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +530,7 @@
 				05B754941815F421003B5A1F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		05B754951815F421003B5A1F /* Build configuration list for PBXNativeTarget "CS440ConstraintSatisfactionTests" */ = {
 			isa = XCConfigurationList;
@@ -449,6 +539,7 @@
 				05B754971815F421003B5A1F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
