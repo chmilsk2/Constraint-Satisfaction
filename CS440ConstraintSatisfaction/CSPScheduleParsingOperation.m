@@ -8,6 +8,8 @@
 
 #import "CSPScheduleParsingOperation.h"
 #import "CSPSchedule.h"
+#import "CSPMeeting.h"
+#import "CSPEmployee.h"
 
 #define SCHEDULE_EXTENSION_TYPE @".txt"
 #define SCHEDULE_NUMBER_OF_MEETINGS_KEY @"Number of meetings"
@@ -38,7 +40,8 @@
 	NSUInteger numberOfMeetings;
 	NSUInteger numberOfEmployees;
 	NSUInteger numberOfTimeSlots;
-	NSMutableDictionary *assignedMeetingsDict = [NSMutableDictionary dictionary];
+	NSMutableDictionary *employees = [NSMutableDictionary dictionary];
+	NSMutableDictionary *meetings = [NSMutableDictionary dictionary];
 	NSMutableArray *travelTimeBetweenMeetings = [NSMutableArray array];
 	
 	NSString *filePath = [[NSBundle mainBundle] pathForResource:_scheduleName ofType:SCHEDULE_EXTENSION_TYPE];
@@ -66,32 +69,50 @@
 		}
 		
 		else if ([[lineComponents firstObject] isEqualToString:SCHEDULE_ASSIGNED_MEETINGS_KEY]) {
-			NSUInteger assignedMeetingsIndex = i + 1;
+			NSUInteger meetingsIndex = i + 1;
 			
 			BOOL shouldContinue = YES;
 			
 			while (shouldContinue) {
-				NSArray *assignedMeetingsLineComponents = [lines[assignedMeetingsIndex] componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@":"]];
+				NSArray *meetingsLineComponents = [lines[meetingsIndex] componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@":"]];
 				
-				NSUInteger employeeId;
+				NSNumber *employeeId;
 				
-				if (assignedMeetingsLineComponents.count > 1) {
-					employeeId = [[assignedMeetingsLineComponents firstObject] integerValue];
+				if (meetingsLineComponents.count > 1) {
+					employeeId = [NSNumber numberWithUnsignedInteger:[[meetingsLineComponents firstObject] integerValue]];
+					CSPEmployee *employee = [[CSPEmployee alloc] initWithEmployeeId:employeeId];
 					
-					NSString *assignedMeetingsStr = assignedMeetingsLineComponents[1];
+					NSString *meetingsStr = meetingsLineComponents[1];
 					
-					NSArray *assignedMeetings = [self parsedIdsFromSpaceDelimitedString:assignedMeetingsStr];
-					[assignedMeetingsDict setObject:assignedMeetings forKey:[NSNumber numberWithUnsignedInteger:employeeId]];
+					NSArray *meetingIds = [self parsedIdsFromSpaceDelimitedString:meetingsStr];
 					
-					if (employeeId == numberOfEmployees) {
+					for (NSNumber *meetingId in meetingIds) {
+						CSPMeeting *meeting = [meetings objectForKey:meetingId];
+						
+						if (!meeting) {
+							meeting = [[CSPMeeting alloc] initWithMeetingId:meetingId];
+						}
+						
+						// add employeee relationship to meeting
+						[meeting.employees addObject:employee];
+						
+						// add meeting relationship to employee
+						[employee.meetings addObject:meeting];
+						
+						[meetings setObject:meeting forKey:meetingId];
+					}
+					
+					[employees setObject:employee forKey:employeeId];
+					
+					if (employeeId.unsignedIntegerValue == numberOfEmployees) {
 						shouldContinue = NO;
 					}
 				}
 				
-				assignedMeetingsIndex++;
+				meetingsIndex++;
 			}
 			
-			i = assignedMeetingsIndex;
+			i = meetingsIndex;
 		}
 		
 		else if ([[lineComponents firstObject] isEqualToString:SCHEDULE_TRAVEL_TIME_BETWEEN_MEETINGS_KEY]) {
@@ -125,7 +146,12 @@
 		}
 	}
 	
-	schedule = [[CSPSchedule alloc] initWithNumberOfMeetings:numberOfMeetings numberOfEmployees:numberOfEmployees numberOfTimeSlots:numberOfTimeSlots assignedMeetingsDict:assignedMeetingsDict travelTimeBetweenMeetings:travelTimeBetweenMeetings];
+	schedule = [[CSPSchedule alloc] initWithNumberOfMeetings:numberOfMeetings
+										   numberOfEmployees:numberOfEmployees
+										   numberOfTimeSlots:numberOfTimeSlots
+												   employees:employees
+													meetings:meetings
+								   travelTimeBetweenMeetings:travelTimeBetweenMeetings];
 	
 	[self didFinishWithSchedule:schedule Error:error];
 }
