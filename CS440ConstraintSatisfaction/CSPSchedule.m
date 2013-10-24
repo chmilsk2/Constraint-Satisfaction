@@ -10,14 +10,20 @@
 
 @implementation CSPSchedule
 
-- (id)initWithNumberOfMeetings:(NSUInteger)numberOfMeetings numberOfEmployees:(NSUInteger)numberOfEmployees numberOfTimeSlots:(NSUInteger)numberOfTimeSlots assignedMeetingsDict:(NSDictionary *)assignedMeetingsDict travelTimeBetweenMeetings:(NSArray *)travelTimeBetweenMeetings {
+- (id)initWithNumberOfMeetings:(NSUInteger)numberOfMeetings
+			 numberOfEmployees:(NSUInteger)numberOfEmployees
+			 numberOfTimeSlots:(NSUInteger)numberOfTimeSlots
+					 employees:(NSDictionary *)employees
+					  meetings:(NSDictionary *)meetings
+	 travelTimeBetweenMeetings:(NSArray *)travelTimeBetweenMeetings {
 	self = [super init];
 	
 	if (self) {
 		_numberOfMeetings = numberOfMeetings;
 		_numberOfEmployees = numberOfEmployees;
 		_numberOfTimeSlots = numberOfTimeSlots;
-		_assignedMeetingsDict = assignedMeetingsDict;
+		_employees = employees;
+		_meetings = meetings;
 		_travelTimeBetweenMeetings = travelTimeBetweenMeetings;
 	}
 	
