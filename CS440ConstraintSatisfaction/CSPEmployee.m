@@ -21,4 +21,26 @@
 	return self;
 }
 
+- (BOOL)isEqualToEmployee:(CSPEmployee *)employee {
+	BOOL isEqualToEmployee = NO;
+	
+	if ([_employeeId isEqualToNumber:employee.employeeId]) {
+		isEqualToEmployee = YES;
+	}
+	
+	return isEqualToEmployee;
+}
+
+- (BOOL)isEqual:(id)object {
+	if (self == object) {
+		return YES;
+	}
+	
+	if (![object isKindOfClass:[CSPEmployee class]]) {
+		return NO;
+	}
+	
+	return [self isEqualToEmployee:(CSPEmployee *)object];
+}
+
 @end

@@ -21,4 +21,26 @@
 	return self;
 }
 
+- (BOOL)isEqualToMeeting:(CSPMeeting *)meeting {
+	BOOL isEqualToMeeting = NO;
+	
+	if ([_meetingId isEqualToNumber:meeting.meetingId]) {
+		isEqualToMeeting = YES;
+	}
+	
+	return isEqualToMeeting;
+}
+
+- (BOOL)isEqual:(id)object {
+	if (self == object) {
+		return YES;
+	}
+	
+	if (![object isKindOfClass:[CSPMeeting class]]) {
+		return NO;
+	}
+	
+	return [self isEqualToMeeting:(CSPMeeting *)object];
+}
+
 @end
