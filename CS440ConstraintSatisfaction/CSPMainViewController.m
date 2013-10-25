@@ -10,6 +10,7 @@
 #import "CSPListViewController.h"
 #import "CSPListSection.h"
 #import "CSPScheduleParsingOperation.h"
+#import "CSPBacktrackingSearchOperation.h"
 #import "CSPSchedule.h"
 
 #define LIST_BUTTON_ITEM_NAME @"854-list"
@@ -74,12 +75,23 @@
 	
 	scheduleParsingOperation.scheduleParsingCompletionBlock = ^(CSPSchedule *schedule, NSError *error) {
 		if (!error) {
-			// solve the csp
+			CSPBacktrackingSearchOperation *backtrackingSearchOperation = [[CSPBacktrackingSearchOperation alloc] initWithSchedule:schedule];
 			
+			backtrackingSearchOperation.backtrackingSearchCompletionBlock = ^(NSArray *assignment, NSError *error) {
+				if (!error) {
+					NSLog(@"finished backtacking search: assignment: %@", assignment);
+				}
+				
+				else {
+					NSLog(@"Error performing backtracking search: %@", [error localizedDescription]);
+				}
+			};
+			
+			[_queue addOperation:backtrackingSearchOperation];
 		}
 		
 		else {
-			NSLog(@"Error Parsing Schedule: %@", name);
+			NSLog(@"Error Parsing Schedule: %@: %@", name, [error localizedDescription]);
 		}
 	};
 	
