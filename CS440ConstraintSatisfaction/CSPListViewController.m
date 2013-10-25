@@ -23,7 +23,7 @@
 #define LIST_CELL_REUSE_IDENTIFIER @"ListCellReuseIdentifier"
 
 // schedules
-#define LIST_SCHEDULES_COUNT 3
+#define LIST_SCHEDULES_COUNT 4
 #define LIST_SCHEDULE_PREFIX @"problem"
 
 @interface CSPListViewController ()
