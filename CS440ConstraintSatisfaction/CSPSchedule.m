@@ -7,6 +7,7 @@
 //
 
 #import "CSPSchedule.h"
+#import "CSPMeeting.h"
 
 @implementation CSPSchedule
 
@@ -32,10 +33,10 @@
 
 #pragma mark - Travel Time Between Meetings
 
-- (NSUInteger)travelTimeBetweenMeeting1:(NSUInteger)meeting1 meeting2:(NSUInteger)meeting2 {
+- (NSUInteger)travelTimeBetweenMeeting1:(CSPMeeting *)meeting1 meeting2:(CSPMeeting *)meeting2 {
 	// row major order offset
 	// matrix is symmetric so it doesn't matter which meeting passed in is used for the row or column
-	NSUInteger offset = (meeting1 - 1)*_numberOfMeetings+(meeting2 - 1);
+	NSUInteger offset = (meeting1.meetingId.unsignedIntegerValue - 1)*_numberOfMeetings+(meeting2.meetingId.unsignedIntegerValue - 1);
 	
 	return [_travelTimeBetweenMeetings[offset] unsignedIntegerValue];
 }
