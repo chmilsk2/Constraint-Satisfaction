@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		054F38561819A5CE0014E1D3 /* CSPMeeting.m in Sources */ = {isa = PBXBuildFile; fileRef = 054F38551819A5CE0014E1D3 /* CSPMeeting.m */; };
+		054F38591819A5DC0014E1D3 /* CSPEmployee.m in Sources */ = {isa = PBXBuildFile; fileRef = 054F38581819A5DC0014E1D3 /* CSPEmployee.m */; };
+		054F385B1819B0FF0014E1D3 /* problem4.txt in Resources */ = {isa = PBXBuildFile; fileRef = 054F385A1819B0FF0014E1D3 /* problem4.txt */; };
 		05B7546A1815F420003B5A1F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B754691815F420003B5A1F /* Foundation.framework */; };
 		05B7546C1815F421003B5A1F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B7546B1815F420003B5A1F /* CoreGraphics.framework */; };
 		05B7546E1815F421003B5A1F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B7546D1815F421003B5A1F /* UIKit.framework */; };
@@ -28,6 +31,7 @@
 		05B754AC1815FB00003B5A1F /* CSPListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B754AB1815FB00003B5A1F /* CSPListViewController.m */; };
 		05B754AF1815FBEF003B5A1F /* CSPScheduleParsingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B754AE1815FBEF003B5A1F /* CSPScheduleParsingOperation.m */; };
 		05B754B918181123003B5A1F /* CSPSchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B754B818181123003B5A1F /* CSPSchedule.m */; };
+		05B754BC1818C942003B5A1F /* CSPBacktrackingSearchOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B754BB1818C942003B5A1F /* CSPBacktrackingSearchOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +45,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		054F38541819A5CE0014E1D3 /* CSPMeeting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPMeeting.h; sourceTree = "<group>"; };
+		054F38551819A5CE0014E1D3 /* CSPMeeting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPMeeting.m; sourceTree = "<group>"; };
+		054F38571819A5DC0014E1D3 /* CSPEmployee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPEmployee.h; sourceTree = "<group>"; };
+		054F38581819A5DC0014E1D3 /* CSPEmployee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPEmployee.m; sourceTree = "<group>"; };
+		054F385A1819B0FF0014E1D3 /* problem4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = problem4.txt; sourceTree = "<group>"; };
 		05B754661815F420003B5A1F /* CS440ConstraintSatisfaction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CS440ConstraintSatisfaction.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05B754691815F420003B5A1F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		05B7546B1815F420003B5A1F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -72,6 +81,8 @@
 		05B754B118160E5B003B5A1F /* CSPListSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPListSection.h; sourceTree = "<group>"; };
 		05B754B718181123003B5A1F /* CSPSchedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPSchedule.h; sourceTree = "<group>"; };
 		05B754B818181123003B5A1F /* CSPSchedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPSchedule.m; sourceTree = "<group>"; };
+		05B754BA1818C942003B5A1F /* CSPBacktrackingSearchOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPBacktrackingSearchOperation.h; sourceTree = "<group>"; };
+		05B754BB1818C942003B5A1F /* CSPBacktrackingSearchOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPBacktrackingSearchOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +190,7 @@
 				05B754991815F690003B5A1F /* problem1.txt */,
 				05B7549A1815F690003B5A1F /* problem2.txt */,
 				05B7549B1815F690003B5A1F /* problem3.txt */,
+				054F385A1819B0FF0014E1D3 /* problem4.txt */,
 			);
 			name = Scheduling;
 			sourceTree = "<group>";
@@ -197,8 +209,14 @@
 			children = (
 				05B754B718181123003B5A1F /* CSPSchedule.h */,
 				05B754B818181123003B5A1F /* CSPSchedule.m */,
+				054F38541819A5CE0014E1D3 /* CSPMeeting.h */,
+				054F38551819A5CE0014E1D3 /* CSPMeeting.m */,
+				054F38571819A5DC0014E1D3 /* CSPEmployee.h */,
+				054F38581819A5DC0014E1D3 /* CSPEmployee.m */,
 				05B754AD1815FBEF003B5A1F /* CSPScheduleParsingOperation.h */,
 				05B754AE1815FBEF003B5A1F /* CSPScheduleParsingOperation.m */,
+				05B754BA1818C942003B5A1F /* CSPBacktrackingSearchOperation.h */,
+				05B754BB1818C942003B5A1F /* CSPBacktrackingSearchOperation.m */,
 				05B754B018160C84003B5A1F /* CSPListDelegate.h */,
 				05B754B118160E5B003B5A1F /* CSPListSection.h */,
 			);
@@ -306,6 +324,7 @@
 				05B7547C1815F421003B5A1F /* Images.xcassets in Resources */,
 				05B7549C1815F690003B5A1F /* problem1.txt in Resources */,
 				05B7549E1815F690003B5A1F /* problem3.txt in Resources */,
+				054F385B1819B0FF0014E1D3 /* problem4.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,9 +345,12 @@
 			files = (
 				05B754A11815F8AD003B5A1F /* CSPMainViewController.m in Sources */,
 				05B754B918181123003B5A1F /* CSPSchedule.m in Sources */,
+				05B754BC1818C942003B5A1F /* CSPBacktrackingSearchOperation.m in Sources */,
 				05B7547A1815F421003B5A1F /* AppDelegate.m in Sources */,
+				054F38591819A5DC0014E1D3 /* CSPEmployee.m in Sources */,
 				05B754761815F421003B5A1F /* main.m in Sources */,
 				05B754AC1815FB00003B5A1F /* CSPListViewController.m in Sources */,
+				054F38561819A5CE0014E1D3 /* CSPMeeting.m in Sources */,
 				05B754AF1815FBEF003B5A1F /* CSPScheduleParsingOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
