@@ -11,6 +11,7 @@
 @interface CSPMeeting : NSObject
 
 @property NSNumber *meetingId;
+@property NSNumber *timeSlot;
 @property NSMutableArray *employees;
 
 - (id)initWithMeetingId:(NSNumber *)meetingId;
