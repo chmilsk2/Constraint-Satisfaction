@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class CSPMeeting;
+
 @interface CSPSchedule : NSObject
 
 @property NSUInteger numberOfMeetings;
@@ -24,6 +26,6 @@
 					  meetings:(NSDictionary *)meetings
 	 travelTimeBetweenMeetings:(NSArray *)travelTimeBetweenMeetings;
 
-- (NSUInteger)travelTimeBetweenMeeting1:(NSUInteger)meeting1 meeting2:(NSUInteger)meeting2;
+- (NSUInteger)travelTimeBetweenMeeting1:(CSPMeeting *)meeting1 meeting2:(CSPMeeting *)meeting2;
 
 @end
