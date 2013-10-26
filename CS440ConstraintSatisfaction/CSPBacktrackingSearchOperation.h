@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^CSPBacktrackingSearchHandler)(NSArray *assignment, NSError *);
+typedef void(^CSPBacktrackingSearchHandler)(NSArray *assignment, NSUInteger, NSTimeInterval, NSError *);
 
 @class CSPSchedule;
 
