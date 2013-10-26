@@ -128,27 +128,6 @@
 	NSLog(@"%@", assignmentStr);
 }
 
-#pragma mark - Order Domain Values
-
-- (NSArray *)orderDomainValuesForVar:(CSPMeeting *)var assignment:(NSArray *)assignment {
-	// in what order should the values be tried
-	// least constraining value (degree heuristic)
-	// for now just return the original order of the time slots
-	return self.timeSlots;
-}
-
-- (NSMutableArray *)timeSlots {
-	if (!_timeSlots) {
-		_timeSlots = [NSMutableArray array];
-	
-		for (NSUInteger i = 1; i <= _schedule.numberOfTimeSlots; i++) {
-			[_timeSlots addObject:[NSNumber numberWithUnsignedInteger:i]];
-		}
-	}
-	
-	return _timeSlots;
-}
-
 #pragma mark - Is Assignment Complete
 
 - (BOOL)isAssignmentComplete:(NSArray *)assignment {
@@ -301,34 +280,61 @@
 	return unassignedMeeting;
 }
 
+
+#pragma mark - Order Domain Values
+
+- (NSArray *)orderDomainValuesForVar:(CSPMeeting *)var assignment:(NSArray *)assignment {
+	// in what order should the values be tried
+	// least constraining value (degree heuristic)
+	// initially returned the original order of the values i.e. return self.timeslots
+	
+	// choose the time slot that has the least meetings
+	// sort the time slots by the number of meetings in the time slot
+	//return self.timeSlots;
+	
+	return self.timeSlots;
+}
+
 #pragma mark - Sort Meetings
 
 - (void)sortMeetingsByTimeSlot:(NSMutableArray *)meetings {
 	[meetings sortUsingComparator:^NSComparisonResult(CSPMeeting *meeting1, CSPMeeting *meeting2) {
 		if (!meeting1.timeSlot || !meeting2.timeSlot) {
 			if (!meeting1.timeSlot && !meeting2.timeSlot) {
-				return (NSComparisonResult)NSOrderedSame;
+				return NSOrderedSame;
 			}
 			
 			if (!meeting1.timeSlot) {
-				return (NSComparisonResult)NSOrderedDescending;
+				return NSOrderedDescending;
 			}
 			
 			if (!meeting2.timeSlot) {
-				return (NSComparisonResult)NSOrderedAscending;
+				return NSOrderedAscending;
 			}
 		}
 		
 		if (meeting1.timeSlot.unsignedIntegerValue > meeting2.timeSlot.unsignedIntegerValue) {
-			return (NSComparisonResult)NSOrderedDescending;
+			return NSOrderedDescending;
 		}
 		
 		if (meeting1.timeSlot.unsignedIntegerValue < meeting2.timeSlot.unsignedIntegerValue) {
-			return (NSComparisonResult)NSOrderedAscending;
+			return NSOrderedAscending;
 		}
 		
-		return (NSComparisonResult)NSOrderedSame;
+		return NSOrderedSame;
 	}];
+}
+
+- (NSMutableArray *)timeSlots {
+	if (!_timeSlots) {
+		_timeSlots = [NSMutableArray array];
+		
+		for (NSUInteger i = 1; i <= _schedule.numberOfTimeSlots; i++) {
+			[_timeSlots addObject:[NSNumber numberWithUnsignedInteger:i]];
+		}
+	}
+	
+	return _timeSlots;
 }
 
 - (void)didFinishWithAssignment:(NSArray *)assignment numberOfAssignments:(NSUInteger)numberOfAssignments executionTime:(NSTimeInterval)executionTime error:(NSError *)error {
