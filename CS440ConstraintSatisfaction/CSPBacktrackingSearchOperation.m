@@ -14,6 +14,7 @@
 @implementation CSPBacktrackingSearchOperation {
 	CSPSchedule *_schedule;
 	NSMutableArray *_timeSlots;
+	NSUInteger _numberOfAssignments;
 }
 
 - (id)initWithSchedule:(CSPSchedule *)schedule {
@@ -21,6 +22,7 @@
 	
 	if (self) {
 		_schedule = schedule;
+		_numberOfAssignments = 0;
 	}
 	
 	return self;
@@ -29,9 +31,15 @@
 - (void)main {
 	NSError *error;
 	
+	NSDate *methodStart = [NSDate date];
+	
 	NSArray *assignment = [self backtrackingSearch];
 	
-	[self didFinishWithAssignment:(NSArray *)assignment error:error];
+	NSDate *methodFinish = [NSDate date];
+
+	NSTimeInterval executionTime = [methodFinish timeIntervalSinceDate:methodStart] * 1000;
+	
+	[self didFinishWithAssignment:assignment numberOfAssignments:_numberOfAssignments executionTime:executionTime error:error];
 }
 
 #pragma mark - Backtracking Search
@@ -63,6 +71,12 @@
 	for (NSNumber *value in values) {
 		[assignment[value.unsignedIntegerValue - 1] addObject:var];
 		[var setTimeSlot:value];
+		
+		_numberOfAssignments++;
+		
+		if (_numberOfAssignments % 1000 == 0) {
+			//NSLog(@"num: %lu", _numberOfAssignments);
+		}
 		
 		//[self prettyPrintAssignment:assignment];
 		
@@ -270,14 +284,17 @@
 - (CSPMeeting *)selectUnassignedVariable {
 	// the variables for the CSP are the meetings
 	__block CSPMeeting *unassignedMeeting;
+	__block NSUInteger numEmployees = NSNotFound;
 	
-	// for now, just select a random variable that is not assigned
+	// most constrained variable, select the meeting with the most employees as the most constrained variable
 	[_schedule.meetings enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
 		CSPMeeting *meeting = [_schedule.meetings objectForKey:key];
 		
 		if (!meeting.timeSlot) {
-			unassignedMeeting = meeting;
-			*stop = YES;
+			if (numEmployees == NSNotFound || meeting.employees.count > numEmployees) {
+				unassignedMeeting = meeting;
+				numEmployees = meeting.employees.count;
+			}
 		}
 	}];
 	
@@ -314,9 +331,9 @@
 	}];
 }
 
-- (void)didFinishWithAssignment:(NSArray *)assignment error:(NSError *)error {
+- (void)didFinishWithAssignment:(NSArray *)assignment numberOfAssignments:(NSUInteger)numberOfAssignments executionTime:(NSTimeInterval)executionTime error:(NSError *)error {
 	if (self.backtrackingSearchCompletionBlock) {
-		self.backtrackingSearchCompletionBlock(assignment, error);
+		self.backtrackingSearchCompletionBlock(assignment, numberOfAssignments, executionTime, error);
 	}
 }
 
