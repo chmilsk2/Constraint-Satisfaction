@@ -12,6 +12,7 @@
 #import "CSPScheduleParsingOperation.h"
 #import "CSPBacktrackingSearchOperation.h"
 #import "CSPSchedule.h"
+#import "CSPMeeting.h"
 
 #define LIST_BUTTON_ITEM_NAME @"854-list"
 
@@ -79,7 +80,7 @@
 			
 			backtrackingSearchOperation.backtrackingSearchCompletionBlock = ^(NSArray *assignment, NSError *error) {
 				if (!error) {
-					NSLog(@"finished backtacking search: assignment: %@", assignment);
+					[self prettyPrintAssignment:assignment];
 				}
 				
 				else {
@@ -96,6 +97,37 @@
 	};
 	
 	[_queue addOperation:scheduleParsingOperation];
+}
+
+- (void)prettyPrintAssignment:(NSArray *)assignment {
+	NSString *assignmentStr = @"Final Assignment: ";
+	
+	for (NSUInteger i = 0; i < assignment.count; i++) {
+		NSArray *timeSlotAssignment = assignment[i];
+		NSString *timeSlotAssignmentStr = @"[";
+		
+		if (timeSlotAssignment.count) {
+			for (NSUInteger j = 0; j < timeSlotAssignment.count; j++) {
+				CSPMeeting *meeting = timeSlotAssignment[j];
+				
+				if (![meeting isEqual:timeSlotAssignment.lastObject]) {
+					timeSlotAssignmentStr = [timeSlotAssignmentStr stringByAppendingString:[NSString stringWithFormat:@"%@, ", [meeting.meetingId stringValue]]];
+				}
+				
+				else {
+					timeSlotAssignmentStr = [timeSlotAssignmentStr stringByAppendingString:[NSString stringWithFormat:@"%@]", [meeting.meetingId stringValue]]];
+				}
+			}
+		}
+		
+		else {
+			timeSlotAssignmentStr = [timeSlotAssignmentStr stringByAppendingString:@"]"];
+		}
+		
+		assignmentStr = [assignmentStr stringByAppendingString:[NSString stringWithFormat:@"%lu: %@ ", i+1, timeSlotAssignmentStr]];
+	}
+	
+	NSLog(@"%@", assignmentStr);
 }
 
 - (void)didReceiveMemoryWarning
