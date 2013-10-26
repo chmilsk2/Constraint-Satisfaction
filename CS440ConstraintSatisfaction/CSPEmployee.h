@@ -10,8 +10,8 @@
 
 @interface CSPEmployee : NSObject
 
-@property NSNumber *employeeId;
-@property NSMutableArray *meetings;
+@property (nonatomic) NSNumber *employeeId;
+@property (nonatomic) NSMutableArray *meetings;
 
 - (id)initWithEmployeeId:(NSNumber *)employeeId;
 
