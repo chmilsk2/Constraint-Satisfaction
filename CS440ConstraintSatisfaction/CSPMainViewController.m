@@ -78,9 +78,11 @@
 		if (!error) {
 			CSPBacktrackingSearchOperation *backtrackingSearchOperation = [[CSPBacktrackingSearchOperation alloc] initWithSchedule:schedule];
 			
-			backtrackingSearchOperation.backtrackingSearchCompletionBlock = ^(NSArray *assignment, NSError *error) {
+			backtrackingSearchOperation.backtrackingSearchCompletionBlock = ^(NSArray *assignment, NSUInteger numberOfAssignments, NSTimeInterval executionTime, NSError *error) {
 				if (!error) {
 					[self prettyPrintAssignment:assignment];
+					NSLog(@"number of assignments: %lu", (unsigned long)numberOfAssignments);
+					[self prettyPrintExecutionTime:executionTime];
 				}
 				
 				else {
@@ -124,10 +126,20 @@
 			timeSlotAssignmentStr = [timeSlotAssignmentStr stringByAppendingString:@"]"];
 		}
 		
-		assignmentStr = [assignmentStr stringByAppendingString:[NSString stringWithFormat:@"%lu: %@ ", i+1, timeSlotAssignmentStr]];
+		assignmentStr = [assignmentStr stringByAppendingString:[NSString stringWithFormat:@"%lu: %@ ", (unsigned long)(i+1), timeSlotAssignmentStr]];
 	}
 	
 	NSLog(@"%@", assignmentStr);
+}
+
+- (void)prettyPrintExecutionTime:(NSTimeInterval)exeuctionTime {
+	NSUInteger timeIntervalMilliSeconds = (NSInteger)exeuctionTime;
+	NSUInteger timeIntervalSeconds = timeIntervalMilliSeconds/1000;
+	NSUInteger milliSeconds = timeIntervalMilliSeconds % 1000;
+	NSUInteger seconds = timeIntervalSeconds % 60;
+    NSUInteger minutes = (timeIntervalSeconds / 60) % 60;
+    NSUInteger hours = (timeIntervalSeconds / 3600);
+    NSLog(@"%@", [NSString stringWithFormat:@"%02lu:%02lu:%02lu:%04lu", (unsigned long)hours, (unsigned long)minutes, (unsigned long)seconds, (unsigned long)milliSeconds]);
 }
 
 - (void)didReceiveMemoryWarning
