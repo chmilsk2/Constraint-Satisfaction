@@ -126,6 +126,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:LIST_CELL_REUSE_IDENTIFIER forIndexPath:indexPath];
+	[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
 	
 	NSString *text;
 
@@ -149,6 +150,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	if (indexPath.section == CSPSectionSceduling) {
 		_selectedScheduleIndex = indexPath.row;
+		[self.tableView reloadData];
 	}
 }
 
