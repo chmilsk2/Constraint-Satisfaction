@@ -10,9 +10,9 @@
 
 @interface CSPMeeting : NSObject
 
-@property NSNumber *meetingId;
-@property NSNumber *timeSlot;
-@property NSMutableArray *employees;
+@property (nonatomic) NSNumber *meetingId;
+@property (nonatomic) NSNumber *timeSlot;
+@property (nonatomic) NSMutableArray *employees;
 
 - (id)initWithMeetingId:(NSNumber *)meetingId;
 
