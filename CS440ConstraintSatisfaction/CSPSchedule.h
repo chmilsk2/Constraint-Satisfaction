@@ -12,12 +12,12 @@
 
 @interface CSPSchedule : NSObject
 
-@property NSUInteger numberOfMeetings;
-@property NSUInteger numberOfEmployees;
-@property NSUInteger numberOfTimeSlots;
-@property NSDictionary *employees;
-@property NSDictionary *meetings;
-@property NSArray *travelTimeBetweenMeetings;
+@property (nonatomic) NSUInteger numberOfMeetings;
+@property (nonatomic) NSUInteger numberOfEmployees;
+@property (nonatomic) NSUInteger numberOfTimeSlots;
+@property (nonatomic) NSDictionary *employees;
+@property (nonatomic) NSDictionary *meetings;
+@property (nonatomic) NSArray *travelTimeBetweenMeetings;
 
 - (id)initWithNumberOfMeetings:(NSUInteger)numberOfMeetings
 			 numberOfEmployees:(NSUInteger)numberOfEmployees
