@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3D1DAFA5-DB60-4618-B034-B3BF59235013</string>
+	<key>IDESourceControlProjectName</key>
+	<string>CS440ConstraintSatisfactionGame</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>629418D3-92F0-4DC6-82FB-D3F765EF2224</key>
+		<string>ssh://github.com/chmilsk2/CS440ConstraintSatisfaction.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>CS440ConstraintSatisfactionGame/CS440ConstraintSatisfactionGame.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>629418D3-92F0-4DC6-82FB-D3F765EF2224</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/chmilsk2/CS440ConstraintSatisfaction.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>629418D3-92F0-4DC6-82FB-D3F765EF2224</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>629418D3-92F0-4DC6-82FB-D3F765EF2224</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CS440ConstraintSatisfaction</string>
+		</dict>
+	</array>
+</dict>
+</plist>

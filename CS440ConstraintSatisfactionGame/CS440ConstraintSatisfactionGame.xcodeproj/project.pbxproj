@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0559205E181D816F00E972AA /* CSPMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0559205D181D816F00E972AA /* CSPMenuItem.m */; };
+		05592067181DBD7300E972AA /* CSPGameBoardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05592066181DBD7300E972AA /* CSPGameBoardCell.m */; };
+		0559206B181DC3E100E972AA /* CSPGameBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0559206A181DC3E100E972AA /* CSPGameBoardView.m */; };
+		05592071181DCAC800E972AA /* CSPGameBoardCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05592070181DCAC800E972AA /* CSPGameBoardCellView.m */; };
 		05A37E35181C7A75007452D3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A37E34181C7A75007452D3 /* Foundation.framework */; };
 		05A37E37181C7A75007452D3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A37E36181C7A75007452D3 /* CoreGraphics.framework */; };
 		05A37E39181C7A75007452D3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A37E38181C7A75007452D3 /* UIKit.framework */; };
@@ -19,6 +23,22 @@
 		05A37E50181C7A75007452D3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A37E38181C7A75007452D3 /* UIKit.framework */; };
 		05A37E58181C7A75007452D3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05A37E56181C7A75007452D3 /* InfoPlist.strings */; };
 		05A37E5A181C7A75007452D3 /* CS440ConstraintSatisfactionGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A37E59181C7A75007452D3 /* CS440ConstraintSatisfactionGameTests.m */; };
+		05A37E68181C7D89007452D3 /* CSPWarGameMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A37E67181C7D89007452D3 /* CSPWarGameMenuViewController.m */; };
+		05A37E6B181C7F7E007452D3 /* CSPWarGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A37E6A181C7F7E007452D3 /* CSPWarGameViewController.m */; };
+		05A37E6F181C807F007452D3 /* 854-list.png in Resources */ = {isa = PBXBuildFile; fileRef = 05A37E6D181C807F007452D3 /* 854-list.png */; };
+		05A37E70181C807F007452D3 /* 854-list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 05A37E6E181C807F007452D3 /* 854-list@2x.png */; };
+		05A37E77181C8384007452D3 /* CSPPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A37E76181C8384007452D3 /* CSPPlayer.m */; };
+		05A37E83181C84EB007452D3 /* CSPAlgorithmOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A37E82181C84EB007452D3 /* CSPAlgorithmOperation.m */; };
+		05A37E88181C856D007452D3 /* CSPMiniMaxOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A37E87181C856D007452D3 /* CSPMiniMaxOperation.m */; };
+		05A37E8B181C8581007452D3 /* CSPAlphaBetaOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A37E8A181C8581007452D3 /* CSPAlphaBetaOperation.m */; };
+		05A37E92181C85EA007452D3 /* Keren.txt in Resources */ = {isa = PBXBuildFile; fileRef = 05A37E8D181C85EA007452D3 /* Keren.txt */; };
+		05A37E93181C85EA007452D3 /* Narvik.txt in Resources */ = {isa = PBXBuildFile; fileRef = 05A37E8E181C85EA007452D3 /* Narvik.txt */; };
+		05A37E94181C85EA007452D3 /* Sevastopol.txt in Resources */ = {isa = PBXBuildFile; fileRef = 05A37E8F181C85EA007452D3 /* Sevastopol.txt */; };
+		05A37E95181C85EA007452D3 /* Smolensk.txt in Resources */ = {isa = PBXBuildFile; fileRef = 05A37E90181C85EA007452D3 /* Smolensk.txt */; };
+		05A37E96181C85EA007452D3 /* Westerplatte.txt in Resources */ = {isa = PBXBuildFile; fileRef = 05A37E91181C85EA007452D3 /* Westerplatte.txt */; };
+		05A37E9D181C8EA1007452D3 /* CSPBoardParsingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A37E9C181C8EA1007452D3 /* CSPBoardParsingOperation.m */; };
+		05A37EA0181C9001007452D3 /* CSPGameBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A37E9F181C9001007452D3 /* CSPGameBoard.m */; };
+		05D69DC0181D7886002CBBA0 /* CSPMenuSectionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D69DBF181D7886002CBBA0 /* CSPMenuSectionItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +52,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0559205C181D816F00E972AA /* CSPMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPMenuItem.h; sourceTree = "<group>"; };
+		0559205D181D816F00E972AA /* CSPMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPMenuItem.m; sourceTree = "<group>"; };
+		05592065181DBD7300E972AA /* CSPGameBoardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPGameBoardCell.h; sourceTree = "<group>"; };
+		05592066181DBD7300E972AA /* CSPGameBoardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPGameBoardCell.m; sourceTree = "<group>"; };
+		05592069181DC3E100E972AA /* CSPGameBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPGameBoardView.h; sourceTree = "<group>"; };
+		0559206A181DC3E100E972AA /* CSPGameBoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPGameBoardView.m; sourceTree = "<group>"; };
+		0559206C181DC92E00E972AA /* CSPBoardDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPBoardDataSource.h; sourceTree = "<group>"; };
+		0559206F181DCAC800E972AA /* CSPGameBoardCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPGameBoardCellView.h; sourceTree = "<group>"; };
+		05592070181DCAC800E972AA /* CSPGameBoardCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPGameBoardCellView.m; sourceTree = "<group>"; };
 		05A37E31181C7A75007452D3 /* CS440ConstraintSatisfactionGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CS440ConstraintSatisfactionGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05A37E34181C7A75007452D3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		05A37E36181C7A75007452D3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -48,6 +77,33 @@
 		05A37E55181C7A75007452D3 /* CS440ConstraintSatisfactionGameTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CS440ConstraintSatisfactionGameTests-Info.plist"; sourceTree = "<group>"; };
 		05A37E57181C7A75007452D3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		05A37E59181C7A75007452D3 /* CS440ConstraintSatisfactionGameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CS440ConstraintSatisfactionGameTests.m; sourceTree = "<group>"; };
+		05A37E66181C7D89007452D3 /* CSPWarGameMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPWarGameMenuViewController.h; sourceTree = "<group>"; };
+		05A37E67181C7D89007452D3 /* CSPWarGameMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPWarGameMenuViewController.m; sourceTree = "<group>"; };
+		05A37E69181C7F7E007452D3 /* CSPWarGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPWarGameViewController.h; sourceTree = "<group>"; };
+		05A37E6A181C7F7E007452D3 /* CSPWarGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPWarGameViewController.m; sourceTree = "<group>"; };
+		05A37E6D181C807F007452D3 /* 854-list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "854-list.png"; sourceTree = "<group>"; };
+		05A37E6E181C807F007452D3 /* 854-list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "854-list@2x.png"; sourceTree = "<group>"; };
+		05A37E71181C81A3007452D3 /* CSPMenuDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPMenuDelegate.h; sourceTree = "<group>"; };
+		05A37E75181C8384007452D3 /* CSPPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPPlayer.h; sourceTree = "<group>"; };
+		05A37E76181C8384007452D3 /* CSPPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPPlayer.m; sourceTree = "<group>"; };
+		05A37E81181C84EB007452D3 /* CSPAlgorithmOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPAlgorithmOperation.h; sourceTree = "<group>"; };
+		05A37E82181C84EB007452D3 /* CSPAlgorithmOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPAlgorithmOperation.m; sourceTree = "<group>"; };
+		05A37E86181C856D007452D3 /* CSPMiniMaxOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPMiniMaxOperation.h; sourceTree = "<group>"; };
+		05A37E87181C856D007452D3 /* CSPMiniMaxOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPMiniMaxOperation.m; sourceTree = "<group>"; };
+		05A37E89181C8581007452D3 /* CSPAlphaBetaOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPAlphaBetaOperation.h; sourceTree = "<group>"; };
+		05A37E8A181C8581007452D3 /* CSPAlphaBetaOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPAlphaBetaOperation.m; sourceTree = "<group>"; };
+		05A37E8D181C85EA007452D3 /* Keren.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Keren.txt; sourceTree = "<group>"; };
+		05A37E8E181C85EA007452D3 /* Narvik.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Narvik.txt; sourceTree = "<group>"; };
+		05A37E8F181C85EA007452D3 /* Sevastopol.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sevastopol.txt; sourceTree = "<group>"; };
+		05A37E90181C85EA007452D3 /* Smolensk.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Smolensk.txt; sourceTree = "<group>"; };
+		05A37E91181C85EA007452D3 /* Westerplatte.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Westerplatte.txt; sourceTree = "<group>"; };
+		05A37E9B181C8EA1007452D3 /* CSPBoardParsingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPBoardParsingOperation.h; sourceTree = "<group>"; };
+		05A37E9C181C8EA1007452D3 /* CSPBoardParsingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPBoardParsingOperation.m; sourceTree = "<group>"; };
+		05A37E9E181C9001007452D3 /* CSPGameBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPGameBoard.h; sourceTree = "<group>"; };
+		05A37E9F181C9001007452D3 /* CSPGameBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPGameBoard.m; sourceTree = "<group>"; };
+		05A37EA2181C9640007452D3 /* CSPGameBoardNames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPGameBoardNames.h; sourceTree = "<group>"; };
+		05D69DBE181D7886002CBBA0 /* CSPMenuSectionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPMenuSectionItem.h; sourceTree = "<group>"; };
+		05D69DBF181D7886002CBBA0 /* CSPMenuSectionItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPMenuSectionItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +130,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05592068181DBD7C00E972AA /* Game Board Cell */ = {
+			isa = PBXGroup;
+			children = (
+				05592065181DBD7300E972AA /* CSPGameBoardCell.h */,
+				05592066181DBD7300E972AA /* CSPGameBoardCell.m */,
+			);
+			name = "Game Board Cell";
+			sourceTree = "<group>";
+		};
+		0559206D181DCA9F00E972AA /* Game Board View */ = {
+			isa = PBXGroup;
+			children = (
+				05592069181DC3E100E972AA /* CSPGameBoardView.h */,
+				0559206A181DC3E100E972AA /* CSPGameBoardView.m */,
+			);
+			name = "Game Board View";
+			sourceTree = "<group>";
+		};
+		0559206E181DCAAB00E972AA /* Game Board Cell View */ = {
+			isa = PBXGroup;
+			children = (
+				0559206F181DCAC800E972AA /* CSPGameBoardCellView.h */,
+				05592070181DCAC800E972AA /* CSPGameBoardCellView.m */,
+			);
+			name = "Game Board Cell View";
+			sourceTree = "<group>";
+		};
 		05A37E28181C7A75007452D3 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +190,9 @@
 		05A37E3A181C7A75007452D3 /* CS440ConstraintSatisfactionGame */ = {
 			isa = PBXGroup;
 			children = (
+				05A37E65181C7BAC007452D3 /* Controller */,
+				05A37E64181C7BA5007452D3 /* View */,
+				05A37E63181C7B9B007452D3 /* Model */,
 				05A37E43181C7A75007452D3 /* CSPAppDelegate.h */,
 				05A37E44181C7A75007452D3 /* CSPAppDelegate.m */,
 				05A37E46181C7A75007452D3 /* Images.xcassets */,
@@ -118,6 +204,8 @@
 		05A37E3B181C7A75007452D3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				05A37E8C181C85D5007452D3 /* Game Boards */,
+				05A37E6C181C8034007452D3 /* Images */,
 				05A37E3C181C7A75007452D3 /* CS440ConstraintSatisfactionGame-Info.plist */,
 				05A37E3D181C7A75007452D3 /* InfoPlist.strings */,
 				05A37E40181C7A75007452D3 /* main.m */,
@@ -142,6 +230,130 @@
 				05A37E56181C7A75007452D3 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		05A37E63181C7B9B007452D3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				05D69DB0181D696B002CBBA0 /* Menu Items */,
+				05A37EA1181C900A007452D3 /* Game Board */,
+				05592068181DBD7C00E972AA /* Game Board Cell */,
+				05A37E79181C8390007452D3 /* Player */,
+				05A37E84181C84F3007452D3 /* Algorithm Operations */,
+				05A37E97181C8E4A007452D3 /* Board Parsing Operation */,
+				05A37EA5181C96BA007452D3 /* Game Board Names */,
+				05A37E85181C851B007452D3 /* Delegates */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		05A37E64181C7BA5007452D3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0559206D181DCA9F00E972AA /* Game Board View */,
+				0559206E181DCAAB00E972AA /* Game Board Cell View */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		05A37E65181C7BAC007452D3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				05A37E69181C7F7E007452D3 /* CSPWarGameViewController.h */,
+				05A37E6A181C7F7E007452D3 /* CSPWarGameViewController.m */,
+				05A37E66181C7D89007452D3 /* CSPWarGameMenuViewController.h */,
+				05A37E67181C7D89007452D3 /* CSPWarGameMenuViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		05A37E6C181C8034007452D3 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				05A37E6D181C807F007452D3 /* 854-list.png */,
+				05A37E6E181C807F007452D3 /* 854-list@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		05A37E79181C8390007452D3 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				05A37E75181C8384007452D3 /* CSPPlayer.h */,
+				05A37E76181C8384007452D3 /* CSPPlayer.m */,
+			);
+			name = Player;
+			sourceTree = "<group>";
+		};
+		05A37E84181C84F3007452D3 /* Algorithm Operations */ = {
+			isa = PBXGroup;
+			children = (
+				05A37E81181C84EB007452D3 /* CSPAlgorithmOperation.h */,
+				05A37E82181C84EB007452D3 /* CSPAlgorithmOperation.m */,
+				05A37E86181C856D007452D3 /* CSPMiniMaxOperation.h */,
+				05A37E87181C856D007452D3 /* CSPMiniMaxOperation.m */,
+				05A37E89181C8581007452D3 /* CSPAlphaBetaOperation.h */,
+				05A37E8A181C8581007452D3 /* CSPAlphaBetaOperation.m */,
+			);
+			name = "Algorithm Operations";
+			sourceTree = "<group>";
+		};
+		05A37E85181C851B007452D3 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				05A37E71181C81A3007452D3 /* CSPMenuDelegate.h */,
+				0559206C181DC92E00E972AA /* CSPBoardDataSource.h */,
+			);
+			name = Delegates;
+			sourceTree = "<group>";
+		};
+		05A37E8C181C85D5007452D3 /* Game Boards */ = {
+			isa = PBXGroup;
+			children = (
+				05A37E8D181C85EA007452D3 /* Keren.txt */,
+				05A37E8E181C85EA007452D3 /* Narvik.txt */,
+				05A37E8F181C85EA007452D3 /* Sevastopol.txt */,
+				05A37E90181C85EA007452D3 /* Smolensk.txt */,
+				05A37E91181C85EA007452D3 /* Westerplatte.txt */,
+			);
+			name = "Game Boards";
+			sourceTree = "<group>";
+		};
+		05A37E97181C8E4A007452D3 /* Board Parsing Operation */ = {
+			isa = PBXGroup;
+			children = (
+				05A37E9B181C8EA1007452D3 /* CSPBoardParsingOperation.h */,
+				05A37E9C181C8EA1007452D3 /* CSPBoardParsingOperation.m */,
+			);
+			name = "Board Parsing Operation";
+			sourceTree = "<group>";
+		};
+		05A37EA1181C900A007452D3 /* Game Board */ = {
+			isa = PBXGroup;
+			children = (
+				05A37E9E181C9001007452D3 /* CSPGameBoard.h */,
+				05A37E9F181C9001007452D3 /* CSPGameBoard.m */,
+			);
+			name = "Game Board";
+			sourceTree = "<group>";
+		};
+		05A37EA5181C96BA007452D3 /* Game Board Names */ = {
+			isa = PBXGroup;
+			children = (
+				05A37EA2181C9640007452D3 /* CSPGameBoardNames.h */,
+			);
+			name = "Game Board Names";
+			sourceTree = "<group>";
+		};
+		05D69DB0181D696B002CBBA0 /* Menu Items */ = {
+			isa = PBXGroup;
+			children = (
+				05D69DBE181D7886002CBBA0 /* CSPMenuSectionItem.h */,
+				05D69DBF181D7886002CBBA0 /* CSPMenuSectionItem.m */,
+				0559205C181D816F00E972AA /* CSPMenuItem.h */,
+				0559205D181D816F00E972AA /* CSPMenuItem.m */,
+			);
+			name = "Menu Items";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,7 +433,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				05A37E3F181C7A75007452D3 /* InfoPlist.strings in Resources */,
+				05A37E93181C85EA007452D3 /* Narvik.txt in Resources */,
+				05A37E6F181C807F007452D3 /* 854-list.png in Resources */,
+				05A37E70181C807F007452D3 /* 854-list@2x.png in Resources */,
+				05A37E96181C85EA007452D3 /* Westerplatte.txt in Resources */,
 				05A37E47181C7A75007452D3 /* Images.xcassets in Resources */,
+				05A37E92181C85EA007452D3 /* Keren.txt in Resources */,
+				05A37E95181C85EA007452D3 /* Smolensk.txt in Resources */,
+				05A37E94181C85EA007452D3 /* Sevastopol.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,8 +459,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05A37EA0181C9001007452D3 /* CSPGameBoard.m in Sources */,
+				05592067181DBD7300E972AA /* CSPGameBoardCell.m in Sources */,
 				05A37E41181C7A75007452D3 /* main.m in Sources */,
+				05592071181DCAC800E972AA /* CSPGameBoardCellView.m in Sources */,
+				05A37E77181C8384007452D3 /* CSPPlayer.m in Sources */,
+				05A37E88181C856D007452D3 /* CSPMiniMaxOperation.m in Sources */,
+				05A37E8B181C8581007452D3 /* CSPAlphaBetaOperation.m in Sources */,
 				05A37E45181C7A75007452D3 /* CSPAppDelegate.m in Sources */,
+				05A37E6B181C7F7E007452D3 /* CSPWarGameViewController.m in Sources */,
+				05A37E68181C7D89007452D3 /* CSPWarGameMenuViewController.m in Sources */,
+				05A37E9D181C8EA1007452D3 /* CSPBoardParsingOperation.m in Sources */,
+				05D69DC0181D7886002CBBA0 /* CSPMenuSectionItem.m in Sources */,
+				0559205E181D816F00E972AA /* CSPMenuItem.m in Sources */,
+				0559206B181DC3E100E972AA /* CSPGameBoardView.m in Sources */,
+				05A37E83181C84EB007452D3 /* CSPAlgorithmOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +674,7 @@
 				05A37E5F181C7A75007452D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		05A37E60181C7A75007452D3 /* Build configuration list for PBXNativeTarget "CS440ConstraintSatisfactionGameTests" */ = {
 			isa = XCConfigurationList;
@@ -450,6 +683,7 @@
 				05A37E62181C7A75007452D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
