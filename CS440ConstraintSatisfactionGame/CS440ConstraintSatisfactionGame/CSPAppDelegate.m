@@ -7,6 +7,7 @@
 //
 
 #import "CSPAppDelegate.h"
+#import "CSPWarGameViewController.h"
 
 @implementation CSPAppDelegate
 
@@ -14,8 +15,15 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+	
+	CSPWarGameViewController *warGameViewController = [[CSPWarGameViewController alloc] init];
+	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:warGameViewController];
+	
+	[self.window setRootViewController:navController];
+    
+	self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+	
     return YES;
 }
 
