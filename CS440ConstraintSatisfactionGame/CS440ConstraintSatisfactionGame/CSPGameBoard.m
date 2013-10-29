@@ -110,4 +110,25 @@
 	return conquerableCellLocations;
 }
 
+- (id)copyWithZone:(NSZone *)zone {
+	CSPGameBoard *copy = [[CSPGameBoard alloc] init];
+	
+	if (copy) {
+		[copy setNumberOfRows:self.numberOfRows];
+		[copy setNumberOfCols:self.numberOfCols];
+		
+		NSMutableArray *boardCopy = [NSMutableArray array];
+		
+		for (NSUInteger row = 0; row < copy.numberOfRows; row++) {
+			for (NSUInteger col = 0; col < copy.numberOfCols; col++) {
+				[boardCopy addObject:[[self cellForRow:row col:col] copy]];
+			}
+		}
+		
+		[copy setBoard:boardCopy];
+	}
+	
+	return copy;
+}
+
 @end
