@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+#define GAME_BOARD_NAME_MINI @"Mini"
 #define GAME_BOARD_NAME_KEREN @"Keren"
 #define GAME_BOARD_NAME_NARVIK @"Narvik"
 #define GAME_BOARD_NAME_SEVASTOPOL @"Sevastopol"
