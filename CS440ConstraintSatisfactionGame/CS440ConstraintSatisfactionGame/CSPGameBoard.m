@@ -28,4 +28,14 @@
 	return _board[offset];
 }
 
+- (void)setCellStateForRow:(NSUInteger)row col:(NSUInteger)col owner:(CSPOwner)playerOwner {
+	CSPGameBoardCell *cell = [self cellForRow:row col:col];
+	[cell setOwner:playerOwner];
+}
+
+- (NSUInteger)weightForRow:(NSUInteger)row col:(NSUInteger)col {
+	CSPGameBoardCell *cell = [self cellForRow:row col:col];
+	return cell.weight;
+}
+
 @end
