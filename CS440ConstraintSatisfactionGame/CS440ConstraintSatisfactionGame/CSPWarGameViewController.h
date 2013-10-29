@@ -13,12 +13,12 @@
 
 typedef NS_ENUM(NSUInteger, CSPLabelType) {
 	CSPLabelTypePlayer1ScoreLabel,
-	CSPLabelTypePlayer2ScoreLable,
 	CSPLabelTypePlayer1TotalNumberOfNodesExpandedLabel,
-	CSPLabelTypePlayer2TotalNumberOfNodesExpandedLabel,
 	CSPLabelTypePlayer1AverageNumberOfNodesExpandedPerMove,
-	CSPLabelTypePlayer2AverageNumberOfNodesExpandedPerMove,
 	CSPLabelTypePlayer1AverageTimePerMove,
+	CSPLabelTypePlayer2ScoreLable,
+	CSPLabelTypePlayer2TotalNumberOfNodesExpandedLabel,
+	CSPLabelTypePlayer2AverageNumberOfNodesExpandedPerMove,
 	CSPLabelTypePlayer2AverageTimePerMove
 };
 

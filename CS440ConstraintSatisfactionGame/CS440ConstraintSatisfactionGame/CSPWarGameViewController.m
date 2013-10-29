@@ -31,8 +31,18 @@
 #define WAR_GAME_BOARD_BORDER_WIDTH 2.0f
 
 // Player Labels
-#define WAR_GAME_NUMBER_OF_PLAYER_LABELS 6
-#define WAR_GAME_PLAYER_LABEL_HEIGHT 30.0f
+#define WAR_GAME_NUMBER_OF_PLAYER_LABELS 8
+#define WAR_GAME_PLAYER_LABEL_HEIGHT 24.0f
+#define WAR_GAME_LABEL_FONT_NAME @"Avenir-Heavy"
+#define WAR_GAME_LABEL_FONT_SIZE 12.0f
+#define WAR_GAME_LABEL_PLAYER_1_SCORE @"Player 1 Score: "
+#define WAR_GAME_LABEL_PLAYER_1_TOTAL_NUM_NODES_EXP @"Player 1 Total Num Nodes Exp: "
+#define WAR_GAME_LABEL_PLAYER_1_AVG_NUM_NODES_EXP_PER_MOVE @"Player 1 Avg Num Nodes Exp Per Move: "
+#define WAR_GAME_LABEL_PLAYER_1_AVG_TIME_PER_MOVE @"Player 1 Avg Time Per Move: "
+#define WAR_GAME_LABEL_PLAYER_2_SCORE @"Player 2 Score: "
+#define WAR_GAME_LABEL_PLAYER_2_TOTAL_NUM_NODES_EXP @"Player 2 Total Num Nodes Exp: "
+#define WAR_GAME_LABEL_PLAYER_2_AVG_NUM_NODES_EXP_PER_MOVE @"Player 2 Avg Num Nodes Exp Per Move: "
+#define WAR_GAME_LABEL_PLAYER_2_AVG_TIME_PER_MOVE @"Player 2 Avg Time Per Move: "
 
 @interface CSPWarGameViewController ()
 
@@ -113,8 +123,56 @@
 		
 		UILabel *playerLabel = [[UILabel alloc] initWithFrame:labelFrame];
 		[_playerLabels addObject:playerLabel];
-		[playerLabel setBackgroundColor:[UIColor blackColor]];
+		
+		[playerLabel setFont:[UIFont fontWithName:WAR_GAME_LABEL_FONT_NAME size:WAR_GAME_LABEL_FONT_SIZE]];
+		[playerLabel setTextAlignment:NSTextAlignmentLeft];
 		[self.view addSubview:playerLabel];
+	}
+	
+	[self setTextForPlayerLabelsWithPlayer1:_playingPlayer player2:_waitingPlayer];
+}
+
+#pragma mark - Player Label Text
+
+- (void)setTextForPlayerLabelsWithPlayer1:(CSPPlayer *)player1 player2:(CSPPlayer *)player2 {
+	for (NSUInteger i = 0; i < WAR_GAME_NUMBER_OF_PLAYER_LABELS; i++) {
+		UILabel *playerLabel = _playerLabels[i];
+		
+		NSString *text;
+		
+		if (i == CSPLabelTypePlayer1ScoreLabel) {
+			text = [NSString stringWithFormat:@"%@%d", WAR_GAME_LABEL_PLAYER_1_SCORE, player1.score];
+		}
+		
+		else if (i == CSPLabelTypePlayer1TotalNumberOfNodesExpandedLabel) {
+			text = [NSString stringWithFormat:@"%@%d", WAR_GAME_LABEL_PLAYER_1_TOTAL_NUM_NODES_EXP, player1.totalNumberOfNodesExpanded];
+		}
+		
+		else if (i == CSPLabelTypePlayer1AverageNumberOfNodesExpandedPerMove) {
+			text = [NSString stringWithFormat:@"%@%d", WAR_GAME_LABEL_PLAYER_1_AVG_NUM_NODES_EXP_PER_MOVE, player1.averageNumberOfNodesExpandedPerMove];
+		}
+		
+		else if (i == CSPLabelTypePlayer1AverageTimePerMove) {
+			text = [NSString stringWithFormat:@"%@%d", WAR_GAME_LABEL_PLAYER_1_AVG_TIME_PER_MOVE, player1.averageTimePerMoveInSeconds];
+		}
+		
+		else if (i == CSPLabelTypePlayer2ScoreLable) {
+			text = [NSString stringWithFormat:@"%@%d", WAR_GAME_LABEL_PLAYER_2_SCORE, player2.score];
+		}
+		
+		else if (i == CSPLabelTypePlayer2TotalNumberOfNodesExpandedLabel) {
+			text = [NSString stringWithFormat:@"%@%d", WAR_GAME_LABEL_PLAYER_2_TOTAL_NUM_NODES_EXP, player2.totalNumberOfNodesExpanded];
+		}
+		
+		else if (i == CSPLabelTypePlayer2AverageNumberOfNodesExpandedPerMove) {
+			text = [NSString stringWithFormat:@"%@%d", WAR_GAME_LABEL_PLAYER_2_AVG_NUM_NODES_EXP_PER_MOVE, player2.averageNumberOfNodesExpandedPerMove];
+		}
+		
+		else if (i == CSPLabelTypePlayer2AverageTimePerMove) {
+			text = [NSString stringWithFormat:@"%@%d", WAR_GAME_LABEL_PLAYER_2_AVG_TIME_PER_MOVE, player2.averageTimePerMoveInSeconds];
+		}
+		
+		[playerLabel setText:text];
 	}
 }
 
@@ -269,12 +327,37 @@
 		}
 		
 		if (cell.owner == CSPOwnerNone) {
+			// set the current cell
 			[_board setCellStateForRow:row col:col owner:owner];
 			[_boardView updateCellViewForRow:row col:col];
-			
-			// update score
 			NSUInteger weight = [_board weightForRow:row col:col];
 			_playingPlayer.score += weight;
+			
+			// retrieve conquerable neighbors if any exist
+			NSArray *conquerableNeighborCellLocations = [_board conquerableNeighborCellLocationsFromRow:row col:col];
+			
+			for (NSValue *location in conquerableNeighborCellLocations) {
+				NSUInteger conquerableNeighborRow = location.CGPointValue.x;
+				NSUInteger conquerableNeighborCol = location.CGPointValue.y;
+				NSUInteger conquerableNeighborWeight;
+				
+				[_board setCellStateForRow:conquerableNeighborRow col:conquerableNeighborCol owner:owner];
+				[_boardView updateCellViewForRow:conquerableNeighborRow col:conquerableNeighborCol];
+				conquerableNeighborWeight = [_board weightForRow:conquerableNeighborRow col:conquerableNeighborCol];
+				
+				_playingPlayer.score += conquerableNeighborWeight;
+				_waitingPlayer.score -= conquerableNeighborWeight;
+			}
+			
+			if (!conquerableNeighborCellLocations.count) {
+				NSLog(@"Player%lu: paradrop col:%lu, row:%lu", (unsigned long)_playingPlayer.playerNumber + 1, (unsigned long)col, (unsigned long)row);
+			}
+			
+			else {
+				NSLog(@"Player%lu: blitz col:%lu, row:%lu", (unsigned long)_playingPlayer.playerNumber + 1, (unsigned long)col, (unsigned long)row);
+			}
+		
+			[self reloadPlayerLabels];
 			[self finishedMove];
 		}
 	}
@@ -285,6 +368,23 @@
 	_playingPlayer = _waitingPlayer;
 	_waitingPlayer = tempPlayer;
 	[self makeMove];
+}
+
+- (void)reloadPlayerLabels {
+	CSPPlayer *player1;
+	CSPPlayer *player2;
+	
+	if (_playingPlayer.playerNumber == CSPPlayerNumberOne) {
+		player1 = _playingPlayer;
+		player2 = _waitingPlayer;
+	}
+	
+	else {
+		player1 = _waitingPlayer;
+		player2 = _playingPlayer;
+	}
+	
+	[self setTextForPlayerLabelsWithPlayer1:player1 player2:player2];
 }
 
 #pragma mark - Board Data Source
