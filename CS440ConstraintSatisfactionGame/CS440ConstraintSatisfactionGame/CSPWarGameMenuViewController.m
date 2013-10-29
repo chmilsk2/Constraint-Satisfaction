@@ -10,6 +10,8 @@
 #import "CSPMenuSectionItem.h"
 #import "CSPMenuItem.h"
 #import "CSPPlayer.h"
+#import "CSPGameBoardNames.h"
+#import "CSPAlgorithmNames.h"
 
 // Navigation
 #define MENU_NAVIGATION_ITEM_TITLE @"Menu"
@@ -35,19 +37,8 @@
 // First Player to Move Section
 #define MENU_FIRST_PLAYER_TO_MOVE_NAME @"First Player to Move"
 
-// Game Boards
-#define MENU_GAME_BOARD_NAME_KEREN @"Keren"
-#define MENU_GAME_BOARD_NAME_NARVIK @"Narvik"
-#define MENU_GAME_BOARD_NAME_SEVASTOPOL @"Sevastopol"
-#define MENU_GAME_BOARD_NAME_SMOLENSK @"Smolensk"
-#define MENU_GAME_BOARD_NAME_WESTERPLATTE @"Westerplatte"
-
 // Game Board Section
 #define MENU_GAME_BOARD_NAME @"Game Board"
-
-// Algorithms
-#define MENU_ALGORITHM_MINIMAX_NAME @"Minimax"
-#define MENU_ALGORITHM_ALPHA_BETA_NAME @"Alpha Beta"
 
 // Computer 1 Algorithm Section
 #define MENU_COMPUTER_1_ALGORITHM_NAME @"Computer 1 Algorithm"
@@ -99,7 +90,7 @@
 		CSPMenuSectionItem *firstPlayerToMoveSection = [[CSPMenuSectionItem alloc] initWithName:MENU_FIRST_PLAYER_TO_MOVE_NAME rows:firstPlayerToMoveRows];
 		
 		// game boards
-		NSArray *gameBoardNames = @[MENU_GAME_BOARD_NAME_KEREN, MENU_GAME_BOARD_NAME_NARVIK, MENU_GAME_BOARD_NAME_SEVASTOPOL, MENU_GAME_BOARD_NAME_SMOLENSK, MENU_GAME_BOARD_NAME_WESTERPLATTE];
+		NSArray *gameBoardNames = @[GAME_BOARD_NAME_MINI, GAME_BOARD_NAME_KEREN, GAME_BOARD_NAME_NARVIK, GAME_BOARD_NAME_SEVASTOPOL, GAME_BOARD_NAME_SMOLENSK, GAME_BOARD_NAME_WESTERPLATTE];
 		
 		NSMutableArray *gameBoardItems = [NSMutableArray array];
 		
@@ -120,8 +111,8 @@
 		
 		CSPMenuSectionItem *gameBoardSection = [[CSPMenuSectionItem alloc] initWithName:MENU_GAME_BOARD_NAME rows:gameBoardItems];
 		
-		CSPMenuItem *minimaxItem = [[CSPMenuItem alloc] initWithName:MENU_ALGORITHM_MINIMAX_NAME isSelected:YES];
-		CSPMenuItem *alphaBetaItem = [[CSPMenuItem alloc] initWithName:MENU_ALGORITHM_ALPHA_BETA_NAME isSelected:NO];
+		CSPMenuItem *minimaxItem = [[CSPMenuItem alloc] initWithName:ALGORITHM_MINIMAX_NAME isSelected:YES];
+		CSPMenuItem *alphaBetaItem = [[CSPMenuItem alloc] initWithName:ALGORITHM_ALPHA_BETA_NAME isSelected:NO];
 		
 		NSArray *algorithmRows = @[minimaxItem, alphaBetaItem];
 		
@@ -283,8 +274,8 @@
 		}
 	}
 	
-	CSPMenuItem *miniMaxAlgorithmItem = [[CSPMenuItem alloc] initWithName:MENU_ALGORITHM_MINIMAX_NAME isSelected:YES];
-	CSPMenuItem *alphaBetaAlgorithmItem = [[CSPMenuItem alloc] initWithName:MENU_ALGORITHM_ALPHA_BETA_NAME isSelected:NO];
+	CSPMenuItem *miniMaxAlgorithmItem = [[CSPMenuItem alloc] initWithName:ALGORITHM_MINIMAX_NAME isSelected:YES];
+	CSPMenuItem *alphaBetaAlgorithmItem = [[CSPMenuItem alloc] initWithName:ALGORITHM_ALPHA_BETA_NAME isSelected:NO];
 	
 	NSArray *algorithmRows = @[miniMaxAlgorithmItem, alphaBetaAlgorithmItem];
 	
@@ -381,8 +372,8 @@
 		}
 	}
 	
-	CSPPlayer *player1 = [[CSPPlayer alloc] initWithPlayerType:player1Type isFirstToMove:isPlayer1FirstToMove];
-	CSPPlayer *player2 = [[CSPPlayer alloc] initWithPlayerType:player2Type isFirstToMove:!isPlayer1FirstToMove];
+	CSPPlayer *player1 = [[CSPPlayer alloc] initWithPlayerType:player1Type playerNumber:CSPPlayerNumberOne isFirstToMove:isPlayer1FirstToMove];
+	CSPPlayer *player2 = [[CSPPlayer alloc] initWithPlayerType:player2Type playerNumber:CSPPlayerNumberTwo isFirstToMove:!isPlayer1FirstToMove];
 	
 	if (player1Type == CSPPlayerTypeComputer) {
 		[player1 setAlgorithmName:algorithmPlayer1Name];
@@ -398,7 +389,6 @@
 - (void)informDelegateOfSelectedPlayer1:(CSPPlayer *)player1 player2:(CSPPlayer *)player2 gameBoardName:(NSString *)gameBoardName {
 	if ([self.delegate respondsToSelector:@selector(didSelectPlayer1:player2:gameBoardName:)]) {
 		[self.delegate didSelectPlayer1:player1 player2:player2 gameBoardName:gameBoardName];
-		
 		[self dismissViewControllerAnimated:YES completion:nil];
 	}
 }
