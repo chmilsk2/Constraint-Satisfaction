@@ -355,6 +355,10 @@
 					if ([menuItem.name isEqualToString:MENU_PLAYER_1_NAME]) {
 						isPlayer1FirstToMove = YES;
 					}
+					
+					else {
+						isPlayer1FirstToMove = NO;
+					}
 				}
 				
 				else if ([sectionItem.name isEqualToString:MENU_GAME_BOARD_NAME]) {
