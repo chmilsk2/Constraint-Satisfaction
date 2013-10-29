@@ -14,15 +14,15 @@
 
 @implementation CSPAlgorithmOperationFactory
 
-+ (CSPAlgorithmOperation *)algorithmOperationWithName:(NSString *)name {
++ (CSPAlgorithmOperation *)algorithmOperationWithName:(NSString *)name root:(CSPNode *)root {
 	CSPAlgorithmOperation *algorithmOperation;
 	
 	if ([name isEqualToString:ALGORITHM_MINIMAX_NAME]) {
-		algorithmOperation = [[CSPMiniMaxOperation alloc] init];
+		algorithmOperation = [[CSPMiniMaxOperation alloc] initWithRoot:root];
 	}
 	
 	else if ([name isEqualToString:ALGORITHM_ALPHA_BETA_NAME]) {
-		algorithmOperation = [[CSPAlphaBetaOperation alloc] init];
+		algorithmOperation = [[CSPAlphaBetaOperation alloc] initWithRoot:root];
 	}
 	
 	return algorithmOperation;
