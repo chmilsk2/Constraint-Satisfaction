@@ -21,5 +21,6 @@
 - (CSPGameBoardCell *)cellForRow:(NSUInteger)row col:(NSUInteger)col;
 - (void)setCellStateForRow:(NSUInteger)row col:(NSUInteger)col owner:(CSPOwner)playerOwner;
 - (NSUInteger)weightForRow:(NSUInteger)row col:(NSUInteger)col;
+- (NSArray *)conquerableNeighborCellLocationsFromRow:(NSUInteger)row col:(NSUInteger)col;
 
 @end
