@@ -9,8 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "CSPAlgorithmOperation.h"
 
+@class CSPNode;
+
 @interface CSPAlgorithmOperationFactory : NSObject
 
-+ (CSPAlgorithmOperation *)algorithmOperationWithName:(NSString *)name;
++ (CSPAlgorithmOperation *)algorithmOperationWithName:(NSString *)name root:(CSPNode *)root;
 
 @end
