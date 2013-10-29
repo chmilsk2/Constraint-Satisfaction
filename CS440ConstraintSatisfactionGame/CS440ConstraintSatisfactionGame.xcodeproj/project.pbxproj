@@ -11,6 +11,8 @@
 		05592067181DBD7300E972AA /* CSPGameBoardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05592066181DBD7300E972AA /* CSPGameBoardCell.m */; };
 		0559206B181DC3E100E972AA /* CSPGameBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0559206A181DC3E100E972AA /* CSPGameBoardView.m */; };
 		05592071181DCAC800E972AA /* CSPGameBoardCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05592070181DCAC800E972AA /* CSPGameBoardCellView.m */; };
+		05592073181E0BDF00E972AA /* Mini.txt in Resources */ = {isa = PBXBuildFile; fileRef = 05592072181E0BDF00E972AA /* Mini.txt */; };
+		0559207C181F254900E972AA /* CSPAlgorithmOperationFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0559207B181F254900E972AA /* CSPAlgorithmOperationFactory.m */; };
 		05A37E35181C7A75007452D3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A37E34181C7A75007452D3 /* Foundation.framework */; };
 		05A37E37181C7A75007452D3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A37E36181C7A75007452D3 /* CoreGraphics.framework */; };
 		05A37E39181C7A75007452D3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A37E38181C7A75007452D3 /* UIKit.framework */; };
@@ -61,6 +63,13 @@
 		0559206C181DC92E00E972AA /* CSPBoardDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPBoardDataSource.h; sourceTree = "<group>"; };
 		0559206F181DCAC800E972AA /* CSPGameBoardCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPGameBoardCellView.h; sourceTree = "<group>"; };
 		05592070181DCAC800E972AA /* CSPGameBoardCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPGameBoardCellView.m; sourceTree = "<group>"; };
+		05592072181E0BDF00E972AA /* Mini.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Mini.txt; sourceTree = "<group>"; };
+		05592074181E191B00E972AA /* CSPCellOwner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPCellOwner.h; sourceTree = "<group>"; };
+		05592078181E1C7100E972AA /* CSPBoardDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPBoardDelegate.h; sourceTree = "<group>"; };
+		05592079181E1FD000E972AA /* CSPBoardCellDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPBoardCellDelegate.h; sourceTree = "<group>"; };
+		0559207A181F254900E972AA /* CSPAlgorithmOperationFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPAlgorithmOperationFactory.h; sourceTree = "<group>"; };
+		0559207B181F254900E972AA /* CSPAlgorithmOperationFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSPAlgorithmOperationFactory.m; sourceTree = "<group>"; };
+		0559207E181F25E700E972AA /* CSPAlgorithmNames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSPAlgorithmNames.h; sourceTree = "<group>"; };
 		05A37E31181C7A75007452D3 /* CS440ConstraintSatisfactionGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CS440ConstraintSatisfactionGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05A37E34181C7A75007452D3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		05A37E36181C7A75007452D3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -157,6 +166,22 @@
 			name = "Game Board Cell View";
 			sourceTree = "<group>";
 		};
+		05592077181E192C00E972AA /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				05592074181E191B00E972AA /* CSPCellOwner.h */,
+			);
+			name = Enums;
+			sourceTree = "<group>";
+		};
+		0559207D181F25D200E972AA /* Algorithm Names */ = {
+			isa = PBXGroup;
+			children = (
+				0559207E181F25E700E972AA /* CSPAlgorithmNames.h */,
+			);
+			name = "Algorithm Names";
+			sourceTree = "<group>";
+		};
 		05A37E28181C7A75007452D3 = {
 			isa = PBXGroup;
 			children = (
@@ -241,8 +266,10 @@
 				05A37E79181C8390007452D3 /* Player */,
 				05A37E84181C84F3007452D3 /* Algorithm Operations */,
 				05A37E97181C8E4A007452D3 /* Board Parsing Operation */,
+				0559207D181F25D200E972AA /* Algorithm Names */,
 				05A37EA5181C96BA007452D3 /* Game Board Names */,
 				05A37E85181C851B007452D3 /* Delegates */,
+				05592077181E192C00E972AA /* Enums */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -288,6 +315,8 @@
 		05A37E84181C84F3007452D3 /* Algorithm Operations */ = {
 			isa = PBXGroup;
 			children = (
+				0559207A181F254900E972AA /* CSPAlgorithmOperationFactory.h */,
+				0559207B181F254900E972AA /* CSPAlgorithmOperationFactory.m */,
 				05A37E81181C84EB007452D3 /* CSPAlgorithmOperation.h */,
 				05A37E82181C84EB007452D3 /* CSPAlgorithmOperation.m */,
 				05A37E86181C856D007452D3 /* CSPMiniMaxOperation.h */,
@@ -303,6 +332,8 @@
 			children = (
 				05A37E71181C81A3007452D3 /* CSPMenuDelegate.h */,
 				0559206C181DC92E00E972AA /* CSPBoardDataSource.h */,
+				05592078181E1C7100E972AA /* CSPBoardDelegate.h */,
+				05592079181E1FD000E972AA /* CSPBoardCellDelegate.h */,
 			);
 			name = Delegates;
 			sourceTree = "<group>";
@@ -310,6 +341,7 @@
 		05A37E8C181C85D5007452D3 /* Game Boards */ = {
 			isa = PBXGroup;
 			children = (
+				05592072181E0BDF00E972AA /* Mini.txt */,
 				05A37E8D181C85EA007452D3 /* Keren.txt */,
 				05A37E8E181C85EA007452D3 /* Narvik.txt */,
 				05A37E8F181C85EA007452D3 /* Sevastopol.txt */,
@@ -441,6 +473,7 @@
 				05A37E92181C85EA007452D3 /* Keren.txt in Resources */,
 				05A37E95181C85EA007452D3 /* Smolensk.txt in Resources */,
 				05A37E94181C85EA007452D3 /* Sevastopol.txt in Resources */,
+				05592073181E0BDF00E972AA /* Mini.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +507,7 @@
 				0559205E181D816F00E972AA /* CSPMenuItem.m in Sources */,
 				0559206B181DC3E100E972AA /* CSPGameBoardView.m in Sources */,
 				05A37E83181C84EB007452D3 /* CSPAlgorithmOperation.m in Sources */,
+				0559207C181F254900E972AA /* CSPAlgorithmOperationFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
