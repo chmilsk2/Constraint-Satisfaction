@@ -8,11 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "CSPBoardDataSource.h"
+#import "CSPBoardDelegate.h"
+#import "CSPBoardCellDelegate.h"
+#import "CSPCellOwner.h"
 
-@interface CSPGameBoardView : UIView
+@interface CSPGameBoardView : UIView <CSPBoardCellDelegate>
 
 @property (nonatomic, weak) id <CSPBoardDataSource> dataSource;
+@property (nonatomic, weak) id <CSPBoardDelegate> delegate;
+@property (nonatomic) NSUInteger cellSize;
 
 - (id)initWithFrame:(CGRect)frame backgroundColor:(UIColor *)backgroundColor borderColor:(UIColor *)borderColor;
+- (void)createBoardView;
+- (void)updateCellViewForRow:(NSUInteger)row col:(NSUInteger)col;
 
 @end
