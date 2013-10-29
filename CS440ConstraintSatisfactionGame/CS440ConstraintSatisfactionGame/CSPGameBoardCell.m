@@ -15,7 +15,7 @@
 	
 	if (self) {
 		_weight = weight;
-		_owner = CSPCellOwnerNone;
+		_owner = CSPOwnerNone;
 	}
 	
 	return self;
