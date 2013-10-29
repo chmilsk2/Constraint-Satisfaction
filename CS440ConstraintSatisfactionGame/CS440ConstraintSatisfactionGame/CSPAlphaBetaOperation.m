@@ -8,6 +8,8 @@
 
 #import "CSPAlphaBetaOperation.h"
 
+#define ALPHA_BETA_DEPTH 3
+
 @implementation CSPAlphaBetaOperation
 
 @end
