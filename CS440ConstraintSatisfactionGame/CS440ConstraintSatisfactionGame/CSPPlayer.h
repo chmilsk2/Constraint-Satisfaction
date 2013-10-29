@@ -13,12 +13,22 @@ typedef NS_ENUM(NSUInteger, CSPPlayerType) {
 	CSPPlayerTypeHuman
 };
 
+typedef NS_ENUM(NSUInteger, CSPPlayerNumber) {
+	CSPPlayerNumberOne,
+	CSPPlayerNumberTwo
+};
+
 @interface CSPPlayer : NSObject
 
 @property CSPPlayerType playerType;
+@property CSPPlayerNumber playerNumber;
 @property BOOL isFirstToMove;
 @property NSString *algorithmName;
+@property NSUInteger score;
+@property NSUInteger totalNumberOfNodesExpanded;
+@property NSUInteger averageNumberOfNodesExpandedPerMove;
+@property NSUInteger averageTimePerMoveInSeconds;
 
-- (id)initWithPlayerType:(CSPPlayerType)playerType isFirstToMove:(BOOL)isFirstToMove;
+- (id)initWithPlayerType:(CSPPlayerType)playerType playerNumber:(CSPPlayerNumber)playerNumber isFirstToMove:(BOOL)isFirstToMove;
 
 @end
