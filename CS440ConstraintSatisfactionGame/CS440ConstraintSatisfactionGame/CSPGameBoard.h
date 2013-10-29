@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CSPCellOwner.h"
 
 @class CSPGameBoardCell;
 
@@ -18,5 +19,7 @@
 
 - (id)initWithBoard:(NSArray *)board numberOfRows:(NSUInteger)numberOfRows numberOfCols:(NSUInteger)numberOfCols;
 - (CSPGameBoardCell *)cellForRow:(NSUInteger)row col:(NSUInteger)col;
+- (void)setCellStateForRow:(NSUInteger)row col:(NSUInteger)col owner:(CSPOwner)playerOwner;
+- (NSUInteger)weightForRow:(NSUInteger)row col:(NSUInteger)col;
 
 @end
