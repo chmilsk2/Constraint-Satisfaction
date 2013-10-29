@@ -9,7 +9,19 @@
 #import <UIKit/UIKit.h>
 #import "CSPMenuDelegate.h"
 #import "CSPBoardDataSource.h"
+#import "CSPBoardDelegate.h"
 
-@interface CSPWarGameViewController : UIViewController <CSPMenuDelegate, CSPBoardDataSource>
+typedef NS_ENUM(NSUInteger, CSPLabelType) {
+	CSPLabelTypePlayer1ScoreLabel,
+	CSPLabelTypePlayer2ScoreLable,
+	CSPLabelTypePlayer1TotalNumberOfNodesExpandedLabel,
+	CSPLabelTypePlayer2TotalNumberOfNodesExpandedLabel,
+	CSPLabelTypePlayer1AverageNumberOfNodesExpandedPerMove,
+	CSPLabelTypePlayer2AverageNumberOfNodesExpandedPerMove,
+	CSPLabelTypePlayer1AverageTimePerMove,
+	CSPLabelTypePlayer2AverageTimePerMove
+};
+
+@interface CSPWarGameViewController : UIViewController <CSPMenuDelegate, CSPBoardDataSource, CSPBoardDelegate>
 
 @end
