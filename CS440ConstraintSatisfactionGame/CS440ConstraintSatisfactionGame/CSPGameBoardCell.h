@@ -7,16 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-
-typedef NS_ENUM(NSUInteger, CSPCellOwner) {
-	CSPCellOwnerNone,
-	CSPCellOwnerPlayer1,
-	CSPCellOwnerPlayer2
-};
+#import "CSPCellOwner.h"
 
 @interface CSPGameBoardCell : NSObject
 
-@property CSPCellOwner owner;
+@property CSPOwner owner;
 @property NSUInteger weight;
 
 - (id)initWithWeight:(NSUInteger)weight;
