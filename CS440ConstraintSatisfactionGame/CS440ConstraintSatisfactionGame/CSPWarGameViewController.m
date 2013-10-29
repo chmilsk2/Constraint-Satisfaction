@@ -141,35 +141,35 @@
 		NSString *text;
 		
 		if (i == CSPLabelTypePlayer1ScoreLabel) {
-			text = [NSString stringWithFormat:@"%@%d", WAR_GAME_LABEL_PLAYER_1_SCORE, player1.score];
+			text = [NSString stringWithFormat:@"%@%lu", WAR_GAME_LABEL_PLAYER_1_SCORE, (unsigned long)player1.score];
 		}
 		
 		else if (i == CSPLabelTypePlayer1TotalNumberOfNodesExpandedLabel) {
-			text = [NSString stringWithFormat:@"%@%d", WAR_GAME_LABEL_PLAYER_1_TOTAL_NUM_NODES_EXP, player1.totalNumberOfNodesExpanded];
+			text = [NSString stringWithFormat:@"%@%lu", WAR_GAME_LABEL_PLAYER_1_TOTAL_NUM_NODES_EXP, (unsigned long)player1.totalNumberOfNodesExpanded];
 		}
 		
 		else if (i == CSPLabelTypePlayer1AverageNumberOfNodesExpandedPerMove) {
-			text = [NSString stringWithFormat:@"%@%d", WAR_GAME_LABEL_PLAYER_1_AVG_NUM_NODES_EXP_PER_MOVE, player1.averageNumberOfNodesExpandedPerMove];
+			text = [NSString stringWithFormat:@"%@%lu", WAR_GAME_LABEL_PLAYER_1_AVG_NUM_NODES_EXP_PER_MOVE, (unsigned long)player1.averageNumberOfNodesExpandedPerMove];
 		}
 		
 		else if (i == CSPLabelTypePlayer1AverageTimePerMove) {
-			text = [NSString stringWithFormat:@"%@%d", WAR_GAME_LABEL_PLAYER_1_AVG_TIME_PER_MOVE, player1.averageTimePerMoveInSeconds];
+			text = [NSString stringWithFormat:@"%@%lu", WAR_GAME_LABEL_PLAYER_1_AVG_TIME_PER_MOVE, (unsigned long)player1.averageTimePerMoveInSeconds];
 		}
 		
 		else if (i == CSPLabelTypePlayer2ScoreLable) {
-			text = [NSString stringWithFormat:@"%@%d", WAR_GAME_LABEL_PLAYER_2_SCORE, player2.score];
+			text = [NSString stringWithFormat:@"%@%lu", WAR_GAME_LABEL_PLAYER_2_SCORE, player2.score];
 		}
 		
 		else if (i == CSPLabelTypePlayer2TotalNumberOfNodesExpandedLabel) {
-			text = [NSString stringWithFormat:@"%@%d", WAR_GAME_LABEL_PLAYER_2_TOTAL_NUM_NODES_EXP, player2.totalNumberOfNodesExpanded];
+			text = [NSString stringWithFormat:@"%@%lu", WAR_GAME_LABEL_PLAYER_2_TOTAL_NUM_NODES_EXP, (unsigned long)player2.totalNumberOfNodesExpanded];
 		}
 		
 		else if (i == CSPLabelTypePlayer2AverageNumberOfNodesExpandedPerMove) {
-			text = [NSString stringWithFormat:@"%@%d", WAR_GAME_LABEL_PLAYER_2_AVG_NUM_NODES_EXP_PER_MOVE, player2.averageNumberOfNodesExpandedPerMove];
+			text = [NSString stringWithFormat:@"%@%lu", WAR_GAME_LABEL_PLAYER_2_AVG_NUM_NODES_EXP_PER_MOVE, (unsigned long)player2.averageNumberOfNodesExpandedPerMove];
 		}
 		
 		else if (i == CSPLabelTypePlayer2AverageTimePerMove) {
-			text = [NSString stringWithFormat:@"%@%d", WAR_GAME_LABEL_PLAYER_2_AVG_TIME_PER_MOVE, player2.averageTimePerMoveInSeconds];
+			text = [NSString stringWithFormat:@"%@%lu", WAR_GAME_LABEL_PLAYER_2_AVG_TIME_PER_MOVE, (unsigned long)player2.averageTimePerMoveInSeconds];
 		}
 		
 		[playerLabel setText:text];
@@ -294,19 +294,79 @@
 
 - (void)makeMove {
 	if (_playingPlayer.playerType == CSPPlayerTypeComputer) {
-		// solve the game using objective C++
-		CSPAlgorithmOperation *algorithmOperation = [CSPAlgorithmOperationFactory algorithmOperationWithName:_playingPlayer.algorithmName];
+		BOOL isMaximizingPlayer = NO;
+		
+		// player 1 is maximizing player, player 2 is minimizing player
+		if (_playingPlayer.playerNumber == CSPPlayerNumberOne) {
+			isMaximizingPlayer = YES;
+		}
+		
+		CSPNode *root = [[CSPNode alloc] initWithBoard:[_board copy] isMaximizingPlayer:isMaximizingPlayer];
+		
+		CSPAlgorithmOperation *algorithmOperation = [CSPAlgorithmOperationFactory algorithmOperationWithName:_playingPlayer.algorithmName root:root];
 		
 		algorithmOperation.aglorithmOperationCompletionBlock = ^(NSUInteger row, NSUInteger col, NSError *error) {
 			if (!error) {
-				[self prepareToMoveAtRow:row col:col];
-				[self finishedMove];
+				dispatch_async(dispatch_get_main_queue(), ^{
+					[self moveToRow:row col:col];
+				});
 			}
 			
 			else {
 				NSLog(@"Error performing %@ operation: %@", _playingPlayer.algorithmName, error);
 			}
 		};
+		
+		[_queue addOperation:algorithmOperation];
+	}
+}
+
+- (void)moveToRow:(NSUInteger)row col:(NSUInteger)col {
+	CSPGameBoardCell *cell = [_board cellForRow:row col:col];
+	
+	CSPOwner owner;
+	
+	if (_playingPlayer.playerNumber == CSPPlayerNumberOne) {
+		owner = CSPOwnerPlayer1;
+	}
+	
+	else {
+		owner = CSPOwnerPlayer2;
+	}
+	
+	if (cell.owner == CSPOwnerNone) {
+		// set the current cell
+		[_board setCellStateForRow:row col:col owner:owner];
+		[_boardView updateCellViewForRow:row col:col];
+		NSUInteger weight = [_board weightForRow:row col:col];
+		_playingPlayer.score += weight;
+		
+		// retrieve conquerable neighbors if any exist
+		NSArray *conquerableNeighborCellLocations = [_board conquerableNeighborCellLocationsFromRow:row col:col];
+		
+		for (NSValue *location in conquerableNeighborCellLocations) {
+			NSUInteger conquerableNeighborRow = location.CGPointValue.x;
+			NSUInteger conquerableNeighborCol = location.CGPointValue.y;
+			NSUInteger conquerableNeighborWeight;
+			
+			[_board setCellStateForRow:conquerableNeighborRow col:conquerableNeighborCol owner:owner];
+			[_boardView updateCellViewForRow:conquerableNeighborRow col:conquerableNeighborCol];
+			conquerableNeighborWeight = [_board weightForRow:conquerableNeighborRow col:conquerableNeighborCol];
+			
+			_playingPlayer.score += conquerableNeighborWeight;
+			_waitingPlayer.score -= conquerableNeighborWeight;
+		}
+		
+		if (!conquerableNeighborCellLocations.count) {
+			NSLog(@"Player%lu: paradrop col:%lu, row:%lu", (unsigned long)_playingPlayer.playerNumber + 1, (unsigned long)col, (unsigned long)row);
+		}
+		
+		else {
+			NSLog(@"Player%lu: blitz col:%lu, row:%lu", (unsigned long)_playingPlayer.playerNumber + 1, (unsigned long)col, (unsigned long)row);
+		}
+		
+		[self reloadPlayerLabels];
+		[self finishedMove];
 	}
 }
 
@@ -314,52 +374,9 @@
 
 - (void)prepareToMoveAtRow:(NSUInteger)row col:(NSUInteger)col {
 	if (_playingPlayer.playerType == CSPPlayerTypeHuman) {
-		CSPGameBoardCell *cell = [_board cellForRow:row col:col];
-		
-		CSPOwner owner;
-		
-		if (_playingPlayer.playerNumber == CSPPlayerNumberOne) {
-			owner = CSPOwnerPlayer1;
-		}
-		
-		else {
-			owner = CSPOwnerPlayer2;
-		}
-		
-		if (cell.owner == CSPOwnerNone) {
-			// set the current cell
-			[_board setCellStateForRow:row col:col owner:owner];
-			[_boardView updateCellViewForRow:row col:col];
-			NSUInteger weight = [_board weightForRow:row col:col];
-			_playingPlayer.score += weight;
-			
-			// retrieve conquerable neighbors if any exist
-			NSArray *conquerableNeighborCellLocations = [_board conquerableNeighborCellLocationsFromRow:row col:col];
-			
-			for (NSValue *location in conquerableNeighborCellLocations) {
-				NSUInteger conquerableNeighborRow = location.CGPointValue.x;
-				NSUInteger conquerableNeighborCol = location.CGPointValue.y;
-				NSUInteger conquerableNeighborWeight;
-				
-				[_board setCellStateForRow:conquerableNeighborRow col:conquerableNeighborCol owner:owner];
-				[_boardView updateCellViewForRow:conquerableNeighborRow col:conquerableNeighborCol];
-				conquerableNeighborWeight = [_board weightForRow:conquerableNeighborRow col:conquerableNeighborCol];
-				
-				_playingPlayer.score += conquerableNeighborWeight;
-				_waitingPlayer.score -= conquerableNeighborWeight;
-			}
-			
-			if (!conquerableNeighborCellLocations.count) {
-				NSLog(@"Player%lu: paradrop col:%lu, row:%lu", (unsigned long)_playingPlayer.playerNumber + 1, (unsigned long)col, (unsigned long)row);
-			}
-			
-			else {
-				NSLog(@"Player%lu: blitz col:%lu, row:%lu", (unsigned long)_playingPlayer.playerNumber + 1, (unsigned long)col, (unsigned long)row);
-			}
-		
-			[self reloadPlayerLabels];
-			[self finishedMove];
-		}
+		dispatch_async(dispatch_get_main_queue(), ^{
+			[self moveToRow:row col:col];
+		});
 	}
 }
 
