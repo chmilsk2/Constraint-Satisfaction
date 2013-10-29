@@ -21,4 +21,15 @@
 	return self;
 }
 
+- (id)copyWithZone:(NSZone *)zone {
+	CSPGameBoardCell *copy = [[CSPGameBoardCell alloc] init];
+	
+	if (copy) {
+		[copy setWeight:self.weight];
+		[copy setOwner:self.owner];
+	}
+	
+	return copy;
+}
+
 @end

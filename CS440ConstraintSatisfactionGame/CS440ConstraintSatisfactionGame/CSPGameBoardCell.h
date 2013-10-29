@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "CSPCellOwner.h"
 
-@interface CSPGameBoardCell : NSObject
+@interface CSPGameBoardCell : NSObject <NSCopying>
 
 @property CSPOwner owner;
 @property NSUInteger weight;
