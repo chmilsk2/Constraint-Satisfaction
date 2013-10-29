@@ -11,7 +11,7 @@
 
 @class CSPGameBoardCell;
 
-@interface CSPGameBoard : NSObject
+@interface CSPGameBoard : NSObject <NSCopying>
 
 @property NSUInteger numberOfRows;
 @property NSUInteger numberOfCols;
