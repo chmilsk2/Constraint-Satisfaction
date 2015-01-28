@@ -1,4 +1,2 @@
-CS440ConstraintSatisfaction
+Constraint-Satisfaction
 ===========================
-
-CS 440 Constraint Satisfaction Problems and Games
